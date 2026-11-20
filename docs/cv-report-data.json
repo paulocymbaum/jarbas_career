@@ -1,0 +1,1764 @@
+{
+  "generatedWith": "scripts/dev/cv-report.ts",
+  "profiles": [
+    {
+      "slug": "ai-engineer",
+      "title": "AI Engineer",
+      "headline": "AI Engineer | RAG Pipelines, AI Agents & LLMOps",
+      "targetRole": "aiEngineer",
+      "targetRoleLabel": "AI Engineer",
+      "summary": "Engineer turned teacherpreneur turned engineer again, shipping production LLM systems: RAG pipelines, vector search, and multi-agent workflows on LangChain and LangGraph, served through FastAPI REST APIs on PostgreSQL. Co-founded YourCompany, where lesson generation went from hours to seconds. Now Engineering AI Specialist at YourClient, leading the rollout of AI-as-Infrastructure across CI/CD pipelines and developer harnesses for 8 engineering and data teams delivering banking services at YourClient | YourClient. A decade in classrooms taught me who the system serves; engineering taught me how to build it.",
+      "keywords": [
+        "AI Engineer",
+        "RAG",
+        "AI Agents",
+        "LangChain",
+        "LangGraph",
+        "LLMOps",
+        "Vertex AI",
+        "GCP",
+        "Firebase",
+        "Firestore",
+        "Vector Search",
+        "FastAPI",
+        "PostgreSQL",
+        "REST API",
+        "Python",
+        "TypeScript",
+        "SQL",
+        "Git",
+        "Docker",
+        "Microservices",
+        "LLM APIs (OpenAI, Claude, Gemini)",
+        "CrewAI",
+        "Kubernetes",
+        "Redis",
+        "NoSQL",
+        "Prompt Engineering",
+        "MCP",
+        "Transformer Models (BERT)",
+        "Evaluation Harnesses",
+        "Structured Outputs",
+        "System Design",
+        "GenAI",
+        "NLP",
+        "LLM",
+        "Supabase",
+        "AI-as-Infrastructure",
+        "Enterprise AI",
+        "Financial Services",
+        "Classification Model",
+        "Synthetic Data Generation",
+        "Model Evaluation",
+        "Agentic SDLC",
+        "AI-Augmented Coding",
+        "AI System Architecture",
+        "Security",
+        "Mentoring",
+        "Onboarding",
+        "Qdrant",
+        "Terraform",
+        "ETL",
+        "Core Banking",
+        "Data Pipelines"
+      ],
+      "skills": [
+        {
+          "category": "AI & LLM",
+          "items": [
+            "LangChain",
+            "LangGraph",
+            "RAG",
+            "LLMOps",
+            "Prompt Engineering",
+            "AI Agents",
+            "GroqCloud",
+            "Vertex AI",
+            "LangSmith",
+            "MCP",
+            "Fine-Tuning",
+            "NLP",
+            "GenAI",
+            "Transformer Models (BERT)",
+            "LLM APIs (OpenAI, Claude, Gemini)",
+            "CrewAI",
+            "Qdrant",
+            "Embeddings & Semantic Search",
+            "Synthetic Data Generation",
+            "Model Evaluation"
+          ]
+        },
+        {
+          "category": "Cloud & Architecture",
+          "items": [
+            "Docker",
+            "GCP",
+            "Terraform",
+            "Firebase",
+            "Firestore",
+            "Cloud SQL",
+            "Cloud Run",
+            "Cloud Build",
+            "Microservices Architecture",
+            "Kubernetes (K8s)",
+            "Redis / Cache",
+            "AI System Architecture",
+            "Data Pipelines (ETL)"
+          ]
+        },
+        {
+          "category": "Languages & Backend",
+          "items": [
+            "Python",
+            "TypeScript",
+            "JavaScript",
+            "FastAPI",
+            "PostgreSQL",
+            "Supabase",
+            "Edge Functions",
+            "SQL",
+            "REST APIs",
+            "Git",
+            "Bash",
+            "NoSQL",
+            "SQLite",
+            "DuckDB"
+          ]
+        },
+        {
+          "category": "Practices",
+          "items": [
+            "AI-as-Infrastructure",
+            "CI/CD",
+            "Unit Testing",
+            "AI Evaluation",
+            "Structured Outputs",
+            "LLM Routing",
+            "Developer Harnesses",
+            "Async Workflows",
+            "Cursor",
+            "Technical Governance",
+            "Vector Search",
+            "System Design",
+            "EvalGates (AI Quality Gates)",
+            "PyTest",
+            "Agentic SDLC (AI-Augmented Coding)",
+            "Process Engineering",
+            "Security Gates",
+            "Kanban Automation",
+            "Dashboards & Analytics",
+            "Technical Documentation",
+            "Mentoring & Onboarding"
+          ]
+        },
+        {
+          "category": "Domains",
+          "items": [
+            "Financial Services & Banking",
+            "Core Banking Migration",
+            "Enterprise AI",
+            "EdTech",
+            "Data Platforms"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "role": "Engineering AI Specialist — AI-as-Infrastructure",
+          "company": "YourClient",
+          "start": "2026-09",
+          "end": null,
+          "summary": "",
+          "highlights": [
+            "Led the rollout of AI-as-Infrastructure into CI/CD pipelines and developer harnesses for 8 engineering and data teams delivering banking services at YourClient | YourClient",
+            "Built Python and React batch automation that manages Kanban tasks and card metadata for 8 squads, cutting hundreds of manual coordination steps",
+            "Authored the AI harness playbooks, troubleshooting guides, and onboarding docs for structured adoption across squads",
+            "Built executive dashboards tracking adoption, team performance, and migration milestones"
+          ],
+          "tech": [
+            "Python",
+            "React",
+            "AI-as-Infrastructure",
+            "CI/CD",
+            "Developer Harnesses",
+            "Technical Governance"
+          ]
+        },
+        {
+          "role": "Full-Stack Engineer",
+          "company": "Stealth Startup (NDA)",
+          "start": "2026-06",
+          "end": null,
+          "summary": "",
+          "highlights": [
+            "Built an agent-and-RAG creator platform on LangGraph and Qdrant",
+            "Ran geolocated 2026 election data pipelines as ETL on Docker and Kubernetes",
+            "Automated all Jira card flows and backlogs through the Jira-integrated SDLC harness, combining process engineering with AI architecture and quality gates",
+            "Managed GCP infrastructure with Terraform and Cloud Run behind GitHub Actions CI/CD, with load balancing and async workflows"
+          ],
+          "tech": [
+            "TypeScript",
+            "React",
+            "Python",
+            "LangChain",
+            "Vertex AI",
+            "GCP",
+            "Flutter",
+            "GitHub Actions"
+          ]
+        },
+        {
+          "role": "Senior Frontend Engineer — AI-Augmented Development",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-12",
+          "end": "2026-09",
+          "summary": "",
+          "highlights": [
+            "Built a Cursor agent harness that generates unit and integration tests before deploy",
+            "Mapped delivery bottlenecks in the software lifecycle and changed the process to cut time-to-market"
+          ],
+          "tech": [
+            "React",
+            "TypeScript",
+            "Cursor",
+            "LLMs",
+            "Git",
+            "Test Automation",
+            "CI/CD"
+          ]
+        },
+        {
+          "role": "Co-founder & Lead Developer — AI/LLM",
+          "company": "YourCompany",
+          "start": "2023-11",
+          "end": "2026-05",
+          "summary": "",
+          "highlights": [
+            "Architected RAG and LangChain lesson pipelines (GroqCloud, LangSmith) that cut production from hours to seconds",
+            "Implemented LLM routing for structured outputs, validation, and fallbacks in TypeScript Edge Functions",
+            "Used 8+ years of teaching to shape lesson UX and which teacher workflows to automate",
+            "Led PostgreSQL, GitHub Actions CI/CD, and tests for AI-driven features"
+          ],
+          "tech": [
+            "TypeScript",
+            "Python",
+            "FastAPI",
+            "RAG",
+            "LangChain",
+            "GroqCloud",
+            "LangSmith",
+            "PostgreSQL",
+            "Supabase",
+            "Edge Functions"
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer — Flutter / HR ERP",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-04",
+          "end": "2026-01",
+          "summary": "",
+          "highlights": [
+            "Migrated an AI-agent documentation and feature framework from Flutter to JavaScript"
+          ],
+          "tech": [
+            "Flutter",
+            "Dart",
+            "JavaScript",
+            "Supabase",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "role": "English Teacher & Entrepreneur — GenAI",
+          "company": "Better Call Your",
+          "start": "2020-01",
+          "end": "2025-05",
+          "summary": "",
+          "highlights": [
+            "Built a Python CRM (Streamlit/Pandas) tracking LTV, retention, and revenue from CSV reports",
+            "Cut churn 50% with engagement analytics; used GenAI roleplay in the teaching loop"
+          ],
+          "tech": [
+            "Python",
+            "Streamlit",
+            "Pandas",
+            "GenAI",
+            "CRM"
+          ]
+        },
+        {
+          "role": "Franchise Educational Coordinator",
+          "company": "YourCompany",
+          "start": "2016-11",
+          "end": "2020-01",
+          "summary": "",
+          "highlights": [
+            "Raised engagement 60%+ and cut churn 50%+ from performance, feedback, and offboarding data"
+          ],
+          "tech": [
+            "People Management",
+            "CRM",
+            "Data Analysis"
+          ]
+        },
+        {
+          "role": "Automation & Control Lab Tutor",
+          "company": "FEI",
+          "start": "2011-12",
+          "end": "2012-06",
+          "summary": "",
+          "highlights": [
+            "Helped students overcome coding challenges in C++ with line followers and PID control systems",
+            "Guided sensor integration with processing units",
+            "Encouraged project-based learning through automation, robotics, and IoT examples"
+          ],
+          "tech": [
+            "C++",
+            "Robotics",
+            "PID Control",
+            "IoT"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Stealth Startup",
+          "description": "Stealth startup (NDA): geolocated 2026 election data pipelines (ETL on Docker and Kubernetes), an agent-and-RAG creator platform (LangGraph, Qdrant), multi-tenant restaurant menu ingestion from HTML, PDF, PNG, or QR codes, and real-time bus tracking. Built the Jira-integrated SDLC harness driving an agentic, AI-augmented coding workflow across a functional monorepo — backend, frontend, and platform layers — automating all Jira card flows and backlogs, with AI architecture and quality gates for system design, test coverage, cost calculation, lint, and vulnerability security scans. Stack: C#/.NET, Dart/Flutter, TypeScript, Bash, React, Python (LangChain, Vertex AI), GCP, GitHub Actions."
+        },
+        {
+          "title": "Praxis",
+          "description": "Open-source educational harness and interactive UI for self-directed coding mastery through project-based learning with AI tutoring."
+        },
+        {
+          "title": "Ed-Tech System MCP",
+          "description": "Domain-driven MCP server for ed-tech workflows with LangGraph agents, Supabase retrieval, and YouTube discovery."
+        },
+        {
+          "title": "Gmail Monitor & Organizer",
+          "description": "Hybrid Gmail classifier on Google Apps Script — rules, decision tree, and Gemini embeddings fallback that label mail into 14 categories, validated on 788 synthetic samples with 100% accuracy."
+        },
+        {
+          "title": "YourCompany Lesson Generator",
+          "description": "AI-powered REST API for generating structured CEFR-compliant English lessons with theory, practice, and quizzes — powered by Groq and FastAPI."
+        }
+      ],
+      "certifications": [
+        "Introdução a Trilha IA — MasterClass IA & Engenharia de Prompts",
+        "Fundamentos Supabase | App de Cursos EAD 1.0",
+        "Fundamentos FlutterFlow — Design e Backend do Zero",
+        "TOEFL iBT — TBD"
+      ],
+      "education": [
+        "Bachelor of Engineering (BE)",
+        "Specialization — Prompt Engineering for SaaS Business Development"
+      ],
+      "sectionWords": {
+        "headline": 11,
+        "summary": 86,
+        "keywords": 79,
+        "skills": 142,
+        "experience": 406,
+        "projects": 227,
+        "credentials": 82
+      },
+      "ats": {
+        "score": 58.3,
+        "coverage": 85,
+        "mustHaveCoverage": 80.8,
+        "matchedCount": 33,
+        "missingCount": 15
+      },
+      "matrix": [
+        {
+          "role": "aiEngineer",
+          "roleLabel": "AI Engineer",
+          "score": 58.3,
+          "coverage": 85,
+          "mustHaveCoverage": 80.8
+        },
+        {
+          "role": "automationEngineer",
+          "roleLabel": "Automation Engineer",
+          "score": 44.1,
+          "coverage": 67.9,
+          "mustHaveCoverage": 68
+        },
+        {
+          "role": "developerPlusAi",
+          "roleLabel": "Developer + AI",
+          "score": 54.1,
+          "coverage": 83.3,
+          "mustHaveCoverage": 100
+        },
+        {
+          "role": "overallAverage",
+          "roleLabel": "Overall Average",
+          "score": 53.1,
+          "coverage": 80.1,
+          "mustHaveCoverage": 100
+        }
+      ],
+      "topMatched": [
+        {
+          "keyword": "RAG (Retrieval-Augmented Gen)",
+          "prevalence": 88,
+          "points": 3,
+          "segments": [
+            "headline",
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "MLOps / Model Serving (vLLM)",
+          "prevalence": 65,
+          "points": 3,
+          "segments": [
+            "headline",
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "Python",
+          "prevalence": 95,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Git / Version Control",
+          "prevalence": 90,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience"
+          ]
+        },
+        {
+          "keyword": "LangChain / LangGraph",
+          "prevalence": 78,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Docker / Containerization",
+          "prevalence": 78,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Pinecone / Qdrant / Weaviate",
+          "prevalence": 75,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "OpenAI API / Claude / Gemini",
+          "prevalence": 72,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "FastAPI / Flask / Express",
+          "prevalence": 70,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "PostgreSQL (PGVector)",
+          "prevalence": 68,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "SQL",
+          "prevalence": 65,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "RESTful API / GraphQL",
+          "prevalence": 65,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "System Design & Architecture",
+          "prevalence": 65,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "LlamaIndex / CrewAI",
+          "prevalence": 62,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills"
+          ]
+        }
+      ],
+      "headlinePlacements": [
+        "RAG (Retrieval-Augmented Gen)",
+        "MLOps / Model Serving (vLLM)"
+      ],
+      "missingMustHave": [
+        {
+          "keyword": "PyTorch",
+          "prevalence": 82
+        },
+        {
+          "keyword": "AWS (SageMaker/Bedrock/Lambda)",
+          "prevalence": 72
+        }
+      ],
+      "missingTop": [
+        {
+          "keyword": "PyTorch",
+          "prevalence": 82
+        },
+        {
+          "keyword": "AWS (SageMaker/Bedrock/Lambda)",
+          "prevalence": 72
+        },
+        {
+          "keyword": "CUDA / GPU Optimization",
+          "prevalence": 38
+        },
+        {
+          "keyword": "Node.js",
+          "prevalence": 28
+        },
+        {
+          "keyword": "API Testing (Postman/RestAssured)",
+          "prevalence": 15
+        },
+        {
+          "keyword": "Web Performance",
+          "prevalence": 15
+        },
+        {
+          "keyword": "Tailwind CSS",
+          "prevalence": 12
+        },
+        {
+          "keyword": "UI/UX Collaboration",
+          "prevalence": 12
+        },
+        {
+          "keyword": "Web Accessibility",
+          "prevalence": 10
+        },
+        {
+          "keyword": "Java",
+          "prevalence": 8
+        },
+        {
+          "keyword": "State Management",
+          "prevalence": 8
+        },
+        {
+          "keyword": "Selenium WebDriver",
+          "prevalence": 0
+        }
+      ]
+    },
+    {
+      "slug": "fullstack-engineer",
+      "title": "Fullstack Engineer",
+      "headline": "Fullstack Engineer | React, TypeScript & REST APIs",
+      "targetRole": "developerPlusAi",
+      "targetRoleLabel": "Developer + AI",
+      "summary": "Engineer turned teacherpreneur turned engineer again, owning features end to end: React and TypeScript UIs, REST APIs, and PostgreSQL data layers. Built HR ERP features at YourCompany (YourClient group) with API contract tests (Postman) and Flutter screens; co-built FastAPI services with GitHub Actions CI/CD on YourCompany; now engineering Python and React batch automation, dashboards, and AI infrastructure for 8 squads delivering banking services at YourClient | YourClient.",
+      "keywords": [
+        "Fullstack Engineer",
+        "C#",
+        ".NET",
+        "React",
+        "TypeScript",
+        "REST API",
+        "FastAPI",
+        "PostgreSQL",
+        "SQL",
+        "NoSQL",
+        "Flutter",
+        "Dart",
+        "CI/CD",
+        "GitHub Actions",
+        "GCP",
+        "Firebase",
+        "Firestore",
+        "Cloud SQL",
+        "Cloud Run",
+        "Cloud Build",
+        "Git",
+        "Docker",
+        "Microservices",
+        "LLM APIs (OpenAI, Claude, Gemini)",
+        "CrewAI",
+        "Kubernetes",
+        "Redis",
+        "SQLite",
+        "DuckDB",
+        "API Testing",
+        "Postman",
+        "Test Automation",
+        "Playwright",
+        "Process Automation",
+        "System Design",
+        "Supabase",
+        "JavaScript",
+        "DevOps",
+        "Financial Services",
+        "Google Apps Script",
+        "Gmail API",
+        "Email Automation",
+        "Classification Model",
+        "Model Optimization",
+        "Serverless Functions",
+        "Cloud Functions",
+        "Edge Computing",
+        "SDLC Automation",
+        "Jira Integration",
+        "Quality Gates",
+        "Monorepo",
+        "Prompt Engineering",
+        "Terraform",
+        "ETL",
+        "HRTech",
+        "UI/UX Collaboration"
+      ],
+      "skills": [
+        {
+          "category": "AI & Automation",
+          "items": [
+            "CrewAI",
+            "EvalGates (AI Quality Gates)",
+            "Prompt Engineering",
+            "Google Apps Script",
+            "Gmail API",
+            "Email Automation",
+            "Classification Model (Rules + Decision Tree + Embeddings)",
+            "Model Optimization"
+          ]
+        },
+        {
+          "category": "Cloud & Architecture",
+          "items": [
+            "Docker",
+            "Microservices Architecture",
+            "LLM APIs (OpenAI, Claude, Gemini)",
+            "Kubernetes (K8s)",
+            "Redis / Cache"
+          ]
+        },
+        {
+          "category": "Frontend",
+          "items": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Flutter",
+            "Dart",
+            "FlutterFlow",
+            "Design System",
+            "Tailwind CSS",
+            "HTML & CSS",
+            "Web Accessibility",
+            "Web Performance",
+            "Vite",
+            "Zustand",
+            "Zod"
+          ]
+        },
+        {
+          "category": "Backend & Data",
+          "items": [
+            "C#",
+            ".NET",
+            "GCP",
+            "Firebase",
+            "Firestore",
+            "Cloud SQL",
+            "Cloud Run",
+            "Cloud Build",
+            "Docker",
+            "Kubernetes",
+            "PostgreSQL",
+            "Supabase",
+            "REST APIs",
+            "GraphQL",
+            "Edge Functions",
+            "Python",
+            "Node.js",
+            "FastAPI",
+            "SQL",
+            "NoSQL",
+            "SQLite",
+            "DuckDB",
+            "Terraform",
+            "ETL / Data Pipelines",
+            "Data Pipeline Design"
+          ]
+        },
+        {
+          "category": "DevOps & Quality",
+          "items": [
+            "CI/CD",
+            "GitHub Actions",
+            "Docker",
+            "Kubernetes",
+            "Load Balancing",
+            "Async Workflows",
+            "Test Automation",
+            "Unit Testing",
+            "Integration Testing",
+            "Process Automation",
+            "Process Engineering",
+            "Cursor",
+            "Postman",
+            "Git",
+            "System Design",
+            "Playwright",
+            "Bash",
+            "Vitest",
+            "Jest",
+            "ESLint",
+            "Agile",
+            "Scrum",
+            "Mentoring",
+            "Cross-Team Collaboration",
+            "SDLC Harnesses (Jira Upstream/Downstream)",
+            "Quality Gates (Tests, Cost, Lint, Security)",
+            "Monorepo Tooling"
+          ]
+        },
+        {
+          "category": "Domains",
+          "items": [
+            "Financial Services & Banking",
+            "HRTech / People-Tech",
+            "EdTech SaaS"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "role": "Engineering AI Specialist — Full-Stack Automation",
+          "company": "YourClient",
+          "start": "2026-09",
+          "end": null,
+          "summary": "",
+          "highlights": [
+            "Built full-stack batch automation in Python and React that manages Kanban tasks and card metadata across 8 squads",
+            "Integrated AI-as-Infrastructure directly into CI/CD pipelines and developer harnesses for 8 teams delivering banking services at YourClient | YourClient",
+            "Built management dashboards and analytics tracking team performance and migration milestones for executives"
+          ],
+          "tech": [
+            "Python",
+            "React",
+            "CI/CD",
+            "AI-as-Infrastructure",
+            "Automation",
+            "Dashboards & Analytics"
+          ]
+        },
+        {
+          "role": "Full-Stack Engineer",
+          "company": "Stealth Startup (NDA)",
+          "start": "2026-06",
+          "end": null,
+          "summary": "",
+          "highlights": [
+            "Shipped C#/.NET backend services, React frontend, and Flutter apps across a functional monorepo",
+            "Automated all Jira card flows and backlogs through the Jira-integrated SDLC harness, applying process engineering to the delivery lifecycle",
+            "Managed load-balanced GCP infrastructure with Terraform and Cloud Run behind GitHub Actions CI/CD, with async workflows across services"
+          ],
+          "tech": [
+            "C#",
+            ".NET",
+            "React",
+            "Flutter",
+            "Dart",
+            "TypeScript",
+            "Python",
+            "GCP",
+            "GitHub Actions"
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer — React & TypeScript",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-12",
+          "end": "2026-09",
+          "summary": "",
+          "highlights": [
+            "Shipped React/TypeScript features against design, engineering, and business specs",
+            "Built unit, integration, and regression tests that raised deploy confidence",
+            "Created a Cursor agent harness and internal frameworks for AI-assisted development"
+          ],
+          "tech": [
+            "React",
+            "TypeScript",
+            "Cursor",
+            "Test Automation",
+            "CI/CD"
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-04",
+          "end": "2026-01",
+          "summary": "",
+          "highlights": [
+            "Built HR ERP features in Flutter, Dart, and FlutterFlow for collaborator retention",
+            "Wrote Postman/DevTools API contract tests against backend services",
+            "Prototyped Supabase/PostgreSQL endpoints and Dart chart pipelines"
+          ],
+          "tech": [
+            "Flutter",
+            "Dart",
+            "FlutterFlow",
+            "Supabase",
+            "PostgreSQL",
+            "Postman"
+          ]
+        },
+        {
+          "role": "Co-founder & Lead Developer — Full-Stack",
+          "company": "YourCompany",
+          "start": "2023-11",
+          "end": "2026-05",
+          "summary": "",
+          "highlights": [
+            "Shipped the EdTech SaaS on TypeScript Edge Functions, FlutterFlow, Supabase, and PostgreSQL",
+            "Designed GitHub Actions + Vercel CI/CD for one-click multi-environment deploys"
+          ],
+          "tech": [
+            "TypeScript",
+            "FastAPI",
+            "SQL",
+            "FlutterFlow",
+            "Supabase",
+            "PostgreSQL",
+            "Edge Functions",
+            "GitHub Actions",
+            "Vercel"
+          ]
+        },
+        {
+          "role": "English Teacher & Entrepreneur",
+          "company": "Better Call Your",
+          "start": "2020-01",
+          "end": "2025-05",
+          "summary": "",
+          "highlights": [
+            "Built a full-stack Python CRM turning CSV financial reports into dashboards",
+            "Raised student engagement 20% with product changes informed by those metrics"
+          ],
+          "tech": [
+            "Python",
+            "Streamlit",
+            "Pandas",
+            "CRM"
+          ]
+        },
+        {
+          "role": "Electronic Engineering Intern",
+          "company": "Kostal",
+          "start": "2012-06",
+          "end": "2013-06",
+          "summary": "",
+          "highlights": [
+            "Calibrated product illumination and documented UX-oriented panel-switch development"
+          ],
+          "tech": [
+            "SpecWin Pro",
+            "UX"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Stealth Startup",
+          "description": "Stealth startup (NDA): geolocated 2026 election data pipelines (ETL on Docker and Kubernetes), an agent-and-RAG creator platform (LangGraph, Qdrant), multi-tenant restaurant menu ingestion from HTML, PDF, PNG, or QR codes, and real-time bus tracking. Built the Jira-integrated SDLC harness driving an agentic, AI-augmented coding workflow across a functional monorepo — backend, frontend, and platform layers — automating all Jira card flows and backlogs, with AI architecture and quality gates for system design, test coverage, cost calculation, lint, and vulnerability security scans. Stack: C#/.NET, Dart/Flutter, TypeScript, Bash, React, Python (LangChain, Vertex AI), GCP, GitHub Actions."
+        },
+        {
+          "title": "Gmail Monitor & Organizer",
+          "description": "Hybrid Gmail classifier on Google Apps Script — rules, decision tree, and Gemini embeddings fallback that label mail into 14 categories, validated on 788 synthetic samples with 100% accuracy."
+        },
+        {
+          "title": "pixelanea",
+          "description": "Local-only pixel art editor — draw, animate, and save .pixelanea projects without the cloud."
+        },
+        {
+          "title": "YourCompany",
+          "description": "AI-powered EdTech SaaS for English teachers — personalized learning paths, lesson automation, and FlutterFlow mobile delivery."
+        },
+        {
+          "title": "AI Code Editor",
+          "description": "Production-ready AI coding agent powered by Groq, specialized in React/TypeScript generation with 42 modular tools."
+        }
+      ],
+      "certifications": [
+        "Fundamentos FlutterFlow — Design e Backend do Zero",
+        "Fundamentos Desenvolvimento de Software",
+        "Fundamentos Supabase | App de Cursos EAD 1.0",
+        "TOEFL iBT — TBD"
+      ],
+      "education": [
+        "Bachelor of Engineering (BE)",
+        "Specialization — Low-Code / No-Code Development"
+      ],
+      "sectionWords": {
+        "headline": 10,
+        "summary": 68,
+        "keywords": 85,
+        "skills": 161,
+        "experience": 304,
+        "projects": 222,
+        "credentials": 71
+      },
+      "ats": {
+        "score": 63.6,
+        "coverage": 92.2,
+        "mustHaveCoverage": 100,
+        "matchedCount": 38,
+        "missingCount": 10
+      },
+      "matrix": [
+        {
+          "role": "aiEngineer",
+          "roleLabel": "AI Engineer",
+          "score": 52.1,
+          "coverage": 81.5,
+          "mustHaveCoverage": 80.8
+        },
+        {
+          "role": "automationEngineer",
+          "roleLabel": "Automation Engineer",
+          "score": 56.4,
+          "coverage": 81.9,
+          "mustHaveCoverage": 84.4
+        },
+        {
+          "role": "developerPlusAi",
+          "roleLabel": "Developer + AI",
+          "score": 63.6,
+          "coverage": 92.2,
+          "mustHaveCoverage": 100
+        },
+        {
+          "role": "overallAverage",
+          "roleLabel": "Overall Average",
+          "score": 57.6,
+          "coverage": 85.8,
+          "mustHaveCoverage": 100
+        }
+      ],
+      "topMatched": [
+        {
+          "keyword": "RESTful API / GraphQL",
+          "prevalence": 92,
+          "points": 3,
+          "segments": [
+            "headline",
+            "summary",
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "React / Next.js",
+          "prevalence": 88,
+          "points": 3,
+          "segments": [
+            "headline",
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "TypeScript",
+          "prevalence": 82,
+          "points": 3,
+          "segments": [
+            "headline",
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Git / Version Control",
+          "prevalence": 95,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "Python",
+          "prevalence": 90,
+          "points": 2,
+          "segments": [
+            "summary",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "FastAPI / Flask / Express",
+          "prevalence": 85,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience"
+          ]
+        },
+        {
+          "keyword": "PostgreSQL (PGVector)",
+          "prevalence": 82,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "OpenAI API / Claude / Gemini",
+          "prevalence": 80,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "System Design & Architecture",
+          "prevalence": 78,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "JavaScript",
+          "prevalence": 75,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Docker / Containerization",
+          "prevalence": 75,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Microservices Architecture",
+          "prevalence": 75,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "SQL",
+          "prevalence": 70,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "CI/CD (Jenkins/GitLab/Actions)",
+          "prevalence": 60,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        }
+      ],
+      "headlinePlacements": [
+        "RESTful API / GraphQL",
+        "React / Next.js",
+        "TypeScript"
+      ],
+      "missingMustHave": [],
+      "missingTop": [
+        {
+          "keyword": "AWS (SageMaker/Bedrock/Lambda)",
+          "prevalence": 68
+        },
+        {
+          "keyword": "Java",
+          "prevalence": 22
+        },
+        {
+          "keyword": "Hugging Face / Transformers",
+          "prevalence": 20
+        },
+        {
+          "keyword": "PyTorch",
+          "prevalence": 18
+        },
+        {
+          "keyword": "MLOps / Model Serving (vLLM)",
+          "prevalence": 15
+        },
+        {
+          "keyword": "Fine-Tuning (LoRA / PEFT)",
+          "prevalence": 12
+        },
+        {
+          "keyword": "CUDA / GPU Optimization",
+          "prevalence": 5
+        },
+        {
+          "keyword": "Selenium WebDriver",
+          "prevalence": 5
+        },
+        {
+          "keyword": "PLC / SCADA / HMI",
+          "prevalence": 0
+        },
+        {
+          "keyword": "UiPath / RPA Frameworks",
+          "prevalence": 0
+        }
+      ]
+    },
+    {
+      "slug": "product-engineer",
+      "title": "Product Engineer",
+      "headline": "Product Engineer | AI-Native EdTech & SaaS · Python",
+      "targetRole": "overallAverage",
+      "targetRoleLabel": "Overall Average",
+      "summary": "Product engineer who lived the customer's problem first: trained as an engineer, spent 10+ years teaching and running schools as a teacherpreneur, then co-founded YourCompany and led it from concept to SaaS — roadmap, pricing, CRM analytics in Python, FlutterFlow delivery on REST APIs — moving conversion, retention, and engagement across B2C and B2B education products. Now at YourClient (YourClient | YourClient), orchestrating cross-team delivery and technical governance for a large-scale core banking system migration.",
+      "keywords": [
+        "Product Engineer",
+        "EdTech",
+        "SaaS",
+        "Product Strategy",
+        "CRM",
+        "Go-to-Market",
+        "User Research",
+        "Business Metrics",
+        "Python",
+        "Git",
+        "REST API",
+        "CI/CD",
+        "Docker",
+        "SQL",
+        "LLM APIs (OpenAI, Claude, Gemini)",
+        "CrewAI",
+        "Kubernetes",
+        "Redis",
+        "NoSQL",
+        "FlutterFlow",
+        "Product Management",
+        "Technical Governance",
+        "Financial Services",
+        "System Design",
+        "Microservices",
+        "Security",
+        "SDLC Governance",
+        "Quality Gates",
+        "UI/UX Collaboration",
+        "HRTech",
+        "Financial Modeling"
+      ],
+      "skills": [
+        {
+          "category": "Product",
+          "items": [
+            "Product Strategy",
+            "Product Discovery",
+            "Product Management",
+            "Project Management",
+            "Kanban",
+            "Roadmapping",
+            "Feature Prioritization",
+            "User Research",
+            "Go-to-Market",
+            "Product-Led Growth",
+            "Experimentation",
+            "A/B Testing",
+            "Landing Page Optimization",
+            "Prototyping",
+            "SEO",
+            "Stakeholder Management",
+            "UI/UX Collaboration",
+            "Financial Modeling",
+            "Performance Optimization",
+            "Jira",
+            "Miro"
+          ]
+        },
+        {
+          "category": "Business & Analytics",
+          "items": [
+            "CRM",
+            "Business Metrics",
+            "KPIs",
+            "Churn Management",
+            "Data Analysis",
+            "People Management",
+            "SaaS",
+            "Inbound Marketing",
+            "Technical Governance",
+            "Cross-Team Orchestration"
+          ]
+        },
+        {
+          "category": "Technical",
+          "items": [
+            "FlutterFlow",
+            "TypeScript",
+            "Next.js",
+            "Supabase",
+            "Analytics",
+            "Low-Code",
+            "LangChain",
+            "Git",
+            "REST APIs",
+            "Python",
+            "JavaScript",
+            "Docker",
+            "SQL",
+            "LLM APIs (OpenAI, Claude, Gemini)",
+            "Redis / Cache",
+            "CrewAI",
+            "Kubernetes (K8s)",
+            "NoSQL",
+            "Bash",
+            "PyTest",
+            "Vitest",
+            "Jest",
+            "Playwright",
+            "System Design",
+            "SDLC Harnesses (Jira)",
+            "Quality Gates (Tests, Cost, Lint, Security)"
+          ]
+        },
+        {
+          "category": "Domains",
+          "items": [
+            "EdTech",
+            "SaaS",
+            "Financial Services & Banking",
+            "HRTech / People-Tech",
+            "Education"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "role": "Co-founder & Lead Developer",
+          "company": "YourCompany",
+          "start": "2023-11",
+          "end": "2026-05",
+          "summary": "",
+          "highlights": [
+            "Owned product strategy, branding, pricing, and sales playbooks for an AI EdTech SaaS",
+            "Built financial models and projection dashboards for pricing and hiring decisions",
+            "Shipped personalized learning paths and teacher workflows on FlutterFlow and Supabase",
+            "Used 8+ years in the classroom to decide which teacher bottlenecks the product should kill"
+          ],
+          "tech": [
+            "FlutterFlow",
+            "TypeScript",
+            "Supabase",
+            "PostgreSQL",
+            "REST APIs",
+            "Analytics",
+            "LangChain",
+            "Git"
+          ]
+        },
+        {
+          "role": "Engineering AI Specialist — Delivery & Governance",
+          "company": "YourClient",
+          "start": "2026-09",
+          "end": null,
+          "summary": "",
+          "highlights": [
+            "Orchestrated cross-team delivery and technical governance for a large-scale core banking system migration across 8 squads",
+            "Led AI harness adoption across teams with structured onboarding, playbooks, and documentation",
+            "Built executive dashboards that track performance and migration milestones for managers"
+          ],
+          "tech": [
+            "Cross-Team Orchestration",
+            "Technical Governance",
+            "AI-as-Infrastructure",
+            "Python",
+            "React",
+            "Analytics"
+          ]
+        },
+        {
+          "role": "English Teacher & Entrepreneur",
+          "company": "Better Call Your",
+          "start": "2020-01",
+          "end": "2025-05",
+          "summary": "",
+          "highlights": [
+            "Grew a private school to 50+ students; converted 60%+ of inbound leads",
+            "Built a CRM for LTV, retention, and revenue; cut churn 50%"
+          ],
+          "tech": [
+            "Python",
+            "Streamlit",
+            "CRM",
+            "GenAI"
+          ]
+        },
+        {
+          "role": "Franchise Educational Coordinator",
+          "company": "YourCompany",
+          "start": "2016-11",
+          "end": "2020-01",
+          "summary": "",
+          "highlights": [
+            "Managed two franchised schools, 500+ students, 3–5 teachers",
+            "Standardized curriculum delivery; engagement +60%, churn −50%"
+          ],
+          "tech": [
+            "People Management",
+            "CRM",
+            "Data Analysis"
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer — HR ERP",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-04",
+          "end": "2026-01",
+          "summary": "",
+          "highlights": [
+            "Built HR ERP features in Flutter, Dart, and FlutterFlow for collaborator retention",
+            "Wrote Postman/DevTools API contract tests against backend services",
+            "Prototyped Supabase/PostgreSQL endpoints and Dart chart pipelines"
+          ],
+          "tech": [
+            "Flutter",
+            "Dart",
+            "FlutterFlow",
+            "Supabase",
+            "PostgreSQL",
+            "Postman"
+          ]
+        },
+        {
+          "role": "Senior Frontend Developer",
+          "company": "YourCompany (YourClient group)",
+          "start": "2025-12",
+          "end": "2026-09",
+          "summary": "",
+          "highlights": [
+            "Partnered with product and design on ideation, feasibility, and delivery for a people-tech platform",
+            "Identified delivery bottlenecks and helped the squad adopt AI-assisted workflows to cut cycle time"
+          ],
+          "tech": [
+            "React",
+            "TypeScript",
+            "Cursor"
+          ]
+        },
+        {
+          "role": "Electronic Engineering Intern",
+          "company": "Kostal",
+          "start": "2012-06",
+          "end": "2013-06",
+          "summary": "",
+          "highlights": [
+            "Contributed to lighted panel-switch UX, illumination calibration, and engineering documentation"
+          ],
+          "tech": [
+            "SpecWin Pro",
+            "UX"
+          ]
+        },
+        {
+          "role": "Automation & Control Lab Tutor",
+          "company": "FEI",
+          "start": "2011-12",
+          "end": "2012-06",
+          "summary": "",
+          "highlights": [
+            "Helped students overcome coding challenges in C++ with line followers and PID control systems",
+            "Guided sensor integration with processing units",
+            "Encouraged project-based learning through automation, robotics, and IoT examples"
+          ],
+          "tech": [
+            "C++",
+            "Robotics",
+            "PID Control",
+            "IoT"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "title": "Stealth Startup",
+          "description": "Stealth startup (NDA): geolocated 2026 election data pipelines (ETL on Docker and Kubernetes), an agent-and-RAG creator platform (LangGraph, Qdrant), multi-tenant restaurant menu ingestion from HTML, PDF, PNG, or QR codes, and real-time bus tracking. Built the Jira-integrated SDLC harness driving an agentic, AI-augmented coding workflow across a functional monorepo — backend, frontend, and platform layers — automating all Jira card flows and backlogs, with AI architecture and quality gates for system design, test coverage, cost calculation, lint, and vulnerability security scans. Stack: C#/.NET, Dart/Flutter, TypeScript, Bash, React, Python (LangChain, Vertex AI), GCP, GitHub Actions."
+        },
+        {
+          "title": "YourCompany",
+          "description": "AI-powered EdTech SaaS for English teachers — personalized learning paths, lesson automation, and FlutterFlow mobile delivery."
+        },
+        {
+          "title": "Prompt-to-App Product Investigator",
+          "description": "Conversational AI that investigates product ideas through interactive questioning and generates implementation-ready prompts."
+        },
+        {
+          "title": "Praxis",
+          "description": "Open-source educational harness and interactive UI for self-directed coding mastery through project-based learning with AI tutoring."
+        },
+        {
+          "title": "Ed-Tech System MCP",
+          "description": "Domain-driven MCP server for ed-tech workflows with LangGraph agents, Supabase retrieval, and YouTube discovery."
+        }
+      ],
+      "certifications": [
+        "Fundamentos Desenvolvimento de Produtos",
+        "Fundamentos FlutterFlow — Design e Backend do Zero",
+        "Introdução a Trilha IA — MasterClass IA & Engenharia de Prompts",
+        "TOEFL iBT — TBD"
+      ],
+      "education": [
+        "Bachelor of Engineering (BE)",
+        "VET — Diploma of Project Management",
+        "Specialization — Prompt Engineering for SaaS Business Development"
+      ],
+      "sectionWords": {
+        "headline": 11,
+        "summary": 76,
+        "keywords": 48,
+        "skills": 110,
+        "experience": 314,
+        "projects": 194,
+        "credentials": 101
+      },
+      "ats": {
+        "score": 48.9,
+        "coverage": 80.4,
+        "mustHaveCoverage": 100,
+        "matchedCount": 33,
+        "missingCount": 15
+      },
+      "matrix": [
+        {
+          "role": "aiEngineer",
+          "roleLabel": "AI Engineer",
+          "score": 46,
+          "coverage": 77.4,
+          "mustHaveCoverage": 80.8
+        },
+        {
+          "role": "automationEngineer",
+          "roleLabel": "Automation Engineer",
+          "score": 48.6,
+          "coverage": 76.4,
+          "mustHaveCoverage": 84.4
+        },
+        {
+          "role": "developerPlusAi",
+          "roleLabel": "Developer + AI",
+          "score": 52,
+          "coverage": 85.8,
+          "mustHaveCoverage": 100
+        },
+        {
+          "role": "overallAverage",
+          "roleLabel": "Overall Average",
+          "score": 48.9,
+          "coverage": 80.4,
+          "mustHaveCoverage": 100
+        }
+      ],
+      "topMatched": [
+        {
+          "keyword": "Python",
+          "prevalence": 90,
+          "points": 3,
+          "segments": [
+            "headline",
+            "summary",
+            "keywords",
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Git / Version Control",
+          "prevalence": 92.3,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "experience"
+          ]
+        },
+        {
+          "keyword": "RESTful API / GraphQL",
+          "prevalence": 70.7,
+          "points": 2,
+          "segments": [
+            "summary",
+            "keywords",
+            "skills",
+            "experience"
+          ]
+        },
+        {
+          "keyword": "Docker / Containerization",
+          "prevalence": 70.3,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "CI/CD (Jenkins/GitLab/Actions)",
+          "prevalence": 66.7,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "SQL",
+          "prevalence": 61,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "System Design & Architecture",
+          "prevalence": 57.7,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Microservices Architecture",
+          "prevalence": 55,
+          "points": 2,
+          "segments": [
+            "keywords"
+          ]
+        },
+        {
+          "keyword": "PyTest / JUnit / TestNG",
+          "prevalence": 54,
+          "points": 2,
+          "segments": [
+            "skills"
+          ]
+        },
+        {
+          "keyword": "OpenAI API / Claude / Gemini",
+          "prevalence": 52.3,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "LangChain / LangGraph",
+          "prevalence": 41,
+          "points": 2,
+          "segments": [
+            "skills",
+            "experience",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Kubernetes (K8s)",
+          "prevalence": 40.7,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills",
+            "projects"
+          ]
+        },
+        {
+          "keyword": "Redis / Cache",
+          "prevalence": 39.3,
+          "points": 2,
+          "segments": [
+            "keywords",
+            "skills"
+          ]
+        },
+        {
+          "keyword": "React / Next.js",
+          "prevalence": 39.3,
+          "points": 2,
+          "segments": [
+            "skills",
+            "experience",
+            "projects"
+          ]
+        }
+      ],
+      "headlinePlacements": [
+        "Python"
+      ],
+      "missingMustHave": [],
+      "missingTop": [
+        {
+          "keyword": "AWS (SageMaker/Bedrock/Lambda)",
+          "prevalence": 61.7
+        },
+        {
+          "keyword": "PyTorch",
+          "prevalence": 34
+        },
+        {
+          "keyword": "Terraform / Ansible",
+          "prevalence": 31
+        },
+        {
+          "keyword": "Java",
+          "prevalence": 29.3
+        },
+        {
+          "keyword": "Selenium WebDriver",
+          "prevalence": 27.7
+        },
+        {
+          "keyword": "Node.js",
+          "prevalence": 27.7
+        },
+        {
+          "keyword": "MLOps / Model Serving (vLLM)",
+          "prevalence": 26.7
+        },
+        {
+          "keyword": "Hugging Face / Transformers",
+          "prevalence": 23.3
+        },
+        {
+          "keyword": "Fine-Tuning (LoRA / PEFT)",
+          "prevalence": 22.3
+        },
+        {
+          "keyword": "Web Accessibility",
+          "prevalence": 14.7
+        },
+        {
+          "keyword": "CUDA / GPU Optimization",
+          "prevalence": 14.3
+        },
+        {
+          "keyword": "Tailwind CSS",
+          "prevalence": 14
+        }
+      ]
+    }
+  ]
+}

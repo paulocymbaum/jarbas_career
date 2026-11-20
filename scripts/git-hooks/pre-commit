@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+# Ephemeral local exports (tailored applications + static HTML mirror) — never commit,
+# even if they were force-added past .gitignore.
+if git diff --cached --name-only -- applications/ static-html/ | grep -q .; then
+  echo "pre-commit: ephemeral local files must not be committed:" >&2
+  git diff --cached --name-only -- applications/ static-html/ >&2
+  exit 1
+fi
+
+DB_PATH="$ROOT/data/portfolio.db"
+SEED_PATH="$ROOT/db/seed.sql"
+
+if [[ ! -f "$DB_PATH" ]]; then
+  exit 0
+fi
+
+echo "pre-commit: exporting portfolio.db → db/seed.sql"
+npm run db:dump-seed --silent
+
+if git diff --quiet -- "$SEED_PATH"; then
+  echo "pre-commit: db/seed.sql unchanged"
+else
+  git add "$SEED_PATH"
+  echo "pre-commit: staged db/seed.sql"
+fi

@@ -1,0 +1,110 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main, master]
+  schedule:
+    # Once a day at 04:00 America/YourCity (07:00 UTC — Brazil has no DST)
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.vercel.outputs.url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync GitHub activity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_CONTRIBUTIONS_TOKEN }}
+          GITHUB_USERNAME: ${{ github.actor }}
+          CI: true
+        run: npm run sync:github-activity
+
+      - name: Commit activity snapshot
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git add data/github-activity.json src/content/github-activity.ts
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: sync GitHub activity [skip ci]"
+            if ! git pull --rebase origin main; then
+              echo "::warning::Rebase failed; aborting and deploying with synced files from this run."
+              git rebase --abort 2>/dev/null || true
+            elif ! git push origin HEAD:main; then
+              echo "::warning::Push rejected; deploying with synced files from this run."
+            fi
+          fi
+
+      - name: Generate ATS resume PDFs
+        run: |
+          npx playwright install chromium
+          npm run db:reset
+          npm run build:content
+          npm run build:resumes
+
+      - name: Upload resume PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes
+          path: public/resumes/*.pdf
+          if-no-files-found: error
+
+      - name: Build site
+        env:
+          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH || '/' }}
+          VITE_UMAMI_WEBSITE_ID: ${{ secrets.VITE_UMAMI_WEBSITE_ID }}
+          VITE_UMAMI_URL: ${{ secrets.VITE_UMAMI_URL }}
+        run: npx tsc -b && npx vite build
+
+      - name: Prerender static HTML (AI crawlers & no-JS fetchers)
+        run: npm run prerender
+
+      - name: Package static output for Vercel
+        run: |
+          mkdir -p .vercel/output/static
+          cp -r dist/. .vercel/output/static/
+          printf '%s\n' \
+            '{' \
+            '  "version": 3,' \
+            '  "routes": [' \
+            '    { "handle": "filesystem" },' \
+            '    { "src": "/freelance", "dest": "/freelance.html" },' \
+            '    { "src": "/freelance/", "dest": "/freelance.html" },' \
+            '    { "src": "/((?!assets/).*)", "dest": "/index.html" }' \
+            '  ]' \
+            '}' > .vercel/output/config.json
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel
+        id: vercel
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          url=$(vercel deploy --prebuilt --prod --yes --token="$VERCEL_TOKEN")
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url"
