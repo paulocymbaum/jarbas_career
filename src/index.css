@@ -1,0 +1,573 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 97%;
+    --foreground: 222 41% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 41% 13%;
+    --primary: 217 91% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 222 41% 13%;
+    --muted: 210 28% 94%;
+    --muted-foreground: 215 16% 37%;
+    --accent: 213 55% 94%;
+    --accent-foreground: 217 71% 28%;
+    --border: 214 22% 86%;
+    --input: 214 22% 86%;
+    --ring: 217 91% 50%;
+    --radius: 0.5rem;
+    /* Bento surface tokens (light) */
+    --panel-top: 0 0% 100%;
+    --panel-bottom: 210 33% 98%;
+    --panel-border: 214 22% 86%;
+    --panel-border-strong: 217 60% 55%;
+    --specular: 0 0% 100%;
+    --edge-highlight: 0 0% 0%;
+  }
+
+  .dark {
+    /* Deep obsidian canvas — #0f131c */
+    --background: 222 31% 8%;
+    /* #f8fafc */
+    --foreground: 210 40% 98%;
+    /* Raised bento surface */
+    --card: 221 38% 11%;
+    --card-foreground: 210 40% 98%;
+    /* Electric indigo — #2563eb */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    /* Hyper cyan — #06b6d4 */
+    --secondary: 189 94% 40%;
+    --secondary-foreground: 200 100% 8%;
+    /* Inset wells — #1e293b */
+    --muted: 217 33% 17%;
+    /* #a3b3ca — lifted from #94a3b8 so body text clears 4.5:1 over panel washes */
+    --muted-foreground: 215 20% 70%;
+    --accent: 220 34% 18%;
+    --accent-foreground: 213 96% 78%;
+    --border: 222 20% 17%;
+    --input: 222 20% 17%;
+    --ring: 221 83% 60%;
+    /* Bento surface tokens (dark) */
+    --panel-top: 221 40% 13%;
+    --panel-bottom: 222 35% 9%;
+    --panel-border: 222 20% 18%;
+    --panel-border-strong: 217 40% 32%;
+    --specular: 0 0% 100%;
+    --edge-highlight: 0 0% 100%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Ambient telemetry glow mesh behind the canvas. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(56rem 32rem at 82% -12%, hsl(var(--primary) / 0.1), transparent 70%),
+      radial-gradient(44rem 28rem at -12% 32%, hsl(var(--secondary) / 0.06), transparent 70%),
+      radial-gradient(40rem 26rem at 60% 118%, hsl(160 84% 39% / 0.05), transparent 70%);
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.35);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ——— Bento panel system (stitch design reference) ——— */
+
+  /* Level 1 bento surface: layered gradient fill + specular inner top edge. */
+  .bento-panel {
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--panel-border));
+    background-image: linear-gradient(
+      180deg,
+      hsl(var(--panel-top)) 0%,
+      hsl(var(--panel-bottom)) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 0 hsl(var(--specular) / 0.12),
+      0 1px 2px 0 hsl(var(--edge-highlight) / 0.04);
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  /* Cursor-proximity spotlight: brighter border + localized primary glow. */
+  .bento-panel-hover:hover {
+    border-color: hsl(var(--panel-border-strong));
+    box-shadow:
+      inset 0 1px 0 0 hsl(var(--specular) / 0.16),
+      0 0 24px -6px hsl(var(--primary) / 0.25);
+  }
+
+  /* Monospace micro-label (label-caps in the design system). */
+  .label-caps {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground;
+  }
+
+  /* Large quantitative display digits (metric-display in the design system). */
+  .metric-display {
+    @apply font-sans text-3xl font-bold tracking-[-0.03em] sm:text-4xl lg:text-[2.75rem] lg:leading-[3rem];
+  }
+
+  /* Pill-shaped live status beacon with soft ping. */
+  .status-dot {
+    position: relative;
+    display: inline-block;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 9999px;
+    background-color: hsl(160 84% 45%);
+    box-shadow: 0 0 8px hsl(160 84% 45% / 0.7);
+    flex-shrink: 0;
+  }
+
+  .status-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: hsl(160 84% 45% / 0.6);
+    animation: status-ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes status-ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+
+    70%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot::after {
+      animation: none;
+    }
+  }
+
+  /* Gradient accent text for headline keywords (indigo → cyan → emerald). */
+  .text-gradient-accent {
+    background-image: linear-gradient(
+      92deg,
+      hsl(217 91% 60%) 0%,
+      hsl(189 94% 43%) 55%,
+      hsl(160 84% 45%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Inset telemetry well (code boxes, heatmap frames, pill bar trays). */
+  .inset-well {
+    @apply rounded-lg border border-border/60 bg-muted/40;
+    box-shadow: inset 0 1px 3px 0 hsl(var(--edge-highlight) / 0.06);
+  }
+
+  .profile-modal::backdrop,
+  .content-modal::backdrop,
+  .skills-drawer::backdrop {
+    background-color: rgb(0 0 0 / 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+  .skills-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(100%, 24rem);
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-left: 1px solid hsl(var(--border));
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    overflow: visible;
+  }
+
+  .skills-drawer:not([open]) {
+    display: none;
+  }
+
+  .skills-drawer[open] {
+    display: flex;
+    flex-direction: column;
+    animation: skills-drawer-in 0.25s ease-out forwards;
+  }
+
+  @keyframes skills-drawer-in {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skills-drawer[open] {
+      animation: none;
+    }
+  }
+
+  .content-modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: min(calc(100% - 1.5rem), 48rem);
+    max-height: min(92vh, 52rem);
+    margin: 0;
+    padding: 0;
+    border: none;
+    transform: translate(-50%, -50%);
+  }
+
+  .content-modal:not([open]) {
+    display: none;
+  }
+
+  .profile-modal:not([open]) {
+    display: none;
+  }
+
+  .profile-modal[open],
+  .content-modal[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-modal[open] {
+    animation: profile-modal-in 0.2s ease-out;
+  }
+
+  .content-modal[open] {
+    animation: content-modal-in 0.2s ease-out;
+  }
+
+  @keyframes profile-modal-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes content-modal-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -48%) scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+}
+
+.project-readme h1 {
+  @apply mb-4 mt-6 text-xl font-bold first:mt-0;
+}
+
+.project-readme h2 {
+  @apply mb-3 mt-6 border-b border-border pb-1 text-lg font-semibold;
+}
+
+.project-readme h3 {
+  @apply mb-2 mt-4 text-base font-semibold;
+}
+
+.project-readme p {
+  @apply mb-3 leading-relaxed text-foreground/90;
+}
+
+.project-readme ul,
+.project-readme ol {
+  @apply mb-4 ml-5 list-outside space-y-1;
+}
+
+.project-readme ul {
+  @apply list-disc;
+}
+
+.project-readme ol {
+  @apply list-decimal;
+}
+
+.project-readme li {
+  @apply leading-relaxed;
+}
+
+.project-readme a {
+  @apply font-medium text-primary underline-offset-2 hover:underline;
+}
+
+.project-readme code {
+  @apply rounded bg-muted px-1 py-0.5 font-mono text-[0.85em];
+}
+
+.project-readme pre {
+  @apply mb-4 overflow-x-auto rounded-md border border-border bg-muted p-4;
+}
+
+.project-readme pre code {
+  @apply bg-transparent p-0;
+}
+
+.project-readme table {
+  @apply mb-4 w-full border-collapse text-sm;
+}
+
+.project-readme th,
+.project-readme td {
+  @apply border border-border px-3 py-2 text-left align-top;
+}
+
+.project-readme th {
+  @apply bg-muted font-semibold;
+}
+
+.project-readme blockquote {
+  @apply mb-4 border-l-4 border-primary/40 pl-4 italic text-muted-foreground;
+}
+
+.project-readme hr {
+  @apply my-6 border-border;
+}
+
+.project-readme img {
+  @apply my-4 max-w-full rounded-md;
+}
+
+@keyframes project-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.project-marquee-track {
+  /* Slow drift — shared by the project & writing showcase marquees. */
+  animation: project-marquee 80s linear infinite;
+}
+
+.project-marquee:hover .project-marquee-track,
+.project-marquee:focus-within .project-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-marquee-track {
+    animation: none;
+  }
+
+  .project-marquee {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+}
+
+/* ——— Scroll FX system (RevampUIUX) ——— */
+
+:root {
+  --fx-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --fx-out: cubic-bezier(0.4, 0, 1, 1);
+  --fx-fast: 180ms;
+  --fx-base: 480ms;
+  --fx-slow: 900ms;
+  --fx-rise: 28px;
+  --fx-stagger: 70ms;
+}
+
+.fx-reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--fx-rise), 0);
+  transition:
+    opacity var(--fx-base) var(--fx-in),
+    transform var(--fx-base) var(--fx-in);
+  transition-delay: calc(var(--fx-stagger) * var(--fx-i, 0));
+}
+
+.fx-reveal-fade {
+  transform: none;
+}
+
+.fx-tilt-reveal {
+  transform: perspective(1000px) rotateX(4deg) translate3d(0, 16px, 0);
+}
+
+.fx-rise-scale {
+  transform: scale(0.96);
+}
+
+.fx-reveal-photo {
+  transform: scale(1.06);
+  transition: transform var(--fx-slow) var(--fx-in);
+}
+
+.fx-in-view .fx-reveal,
+.fx-reveal.fx-in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.fx-in-view .fx-tilt-reveal,
+.fx-tilt-reveal.fx-in-view {
+  transform: none;
+}
+
+.fx-reveal.fx-reveal-photo.fx-in-view {
+  transform: scale(1);
+}
+
+.fx-orb {
+  opacity: 0.45;
+  transition: opacity var(--fx-slow) var(--fx-in);
+}
+
+.fx-in-view .fx-orb {
+  opacity: 1;
+}
+
+/* Objection strike-in: pains get crossed off after fading in. */
+.fx-strike {
+  position: relative;
+}
+
+.fx-strike::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 320ms var(--fx-in);
+  transition-delay: calc(var(--fx-base) + var(--fx-stagger) * var(--fx-i, 0));
+}
+
+.fx-in-view .fx-strike::after {
+  transform: scaleX(1);
+}
+
+/* FAQ disclosure via grid rows (no JS measuring). */
+.fx-disclosure {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--fx-base) var(--fx-in);
+}
+
+.fx-disclosure[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.fx-disclosure > div {
+  overflow: hidden;
+}
+
+.fx-will-transform {
+  will-change: transform;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+/* Cross-document view transitions (progressive enhancement). */
+@view-transition {
+  navigation: auto;
+}
+
+.fx-caption-in {
+  animation: fx-caption-in 480ms var(--fx-in) both;
+}
+
+@keyframes fx-caption-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-caption-in {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .fx-strike::after {
+    display: none;
+  }
+
+  .fx-disclosure {
+    transition: none;
+  }
+
+  .fx-orb {
+    opacity: 1;
+    transition: none;
+  }
+}

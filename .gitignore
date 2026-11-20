@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules
+
+# Build
+dist
+dist-ssr
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Env
+.env
+.env.*
+!.env.example
+
+# SQLite (generated locally)
+data/portfolio.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+data/linkedin/
+data/upwork/
+
+# Generated resume PDFs (built via npm run build:resumes)
+public/resumes/*.pdf
+
+# Tailored job applications (JDs, ATS gates, CVs, cover letters)
+applications/
+
+# Static HTML mirror of the portfolio (ephemeral local export)
+static-html/
+
+# Vercel local link metadata (org/project ids — use gh:secrets to push)
+.vercel
+
+# taste-skill gate state (design-taste-frontend audit runs)
+.taste-skill/
+
+# Local agent config (Cline/Claude session settings + personal skills)
+.claude/
+
+# Design handoff artifacts (extracted locally from stitch)
+stitch_portfolio_hero_section_revamp.zip

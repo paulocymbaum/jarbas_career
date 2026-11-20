@@ -1,0 +1,130 @@
+---
+description: SEO definitions, patterns, and anti-patterns for the portfolio site
+globs: index.html, public/**, src/content/**, src/components/**, src/pages/**
+alwaysApply: false
+---
+
+# SEO — Portfolio Site
+
+## What SEO means here
+
+Search engines and social platforms need **crawlable, accurate metadata** and **semantic HTML** so the portfolio ranks for name + role queries and renders rich previews when shared.
+
+This is a **Vite SPA** (single page, hash anchors). Crawlers see `index.html` first; content in React must still use proper headings and accessible text — not images alone.
+
+Reference: `DESIGN.md` §11.
+
+---
+
+## Recommendations
+
+### Document metadata (`index.html`)
+
+- **Title**: `{Name} — {Primary role}` (unique, ≤60 chars)
+- **Meta description**: hero pitch, **120–155 chars**, active voice, no keyword stuffing
+- **`lang`**: set on `<html>` (e.g. `en`)
+- **Canonical**: `<link rel="canonical" href="https://{production-domain}/" />`
+- **Open Graph**: `og:title`, `og:description`, `og:image` (1200×630), `og:url`, `og:type=website`
+- **Twitter**: `twitter:card=summary_large_image`, mirror title/description/image
+- **Favicon**: SVG + fallback; `theme-color` optional
+
+Derive title/description from `siteContent` (`name`, `title`, `pitch`) — keep `index.html` in sync after content changes or generate at build time.
+
+### Static assets (`public/`)
+
+- `robots.txt` — allow `/`, point to sitemap
+- `sitemap.xml` — at minimum the homepage URL with `lastmod`
+- OG image at a stable path (e.g. `/og-card.png`)
+
+### Structured data
+
+Add JSON-LD `Person` in `index.html` (or injected at build):
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "…",
+  "jobTitle": "…",
+  "url": "https://…",
+  "sameAs": ["https://github.com/…", "https://linkedin.com/in/…"]
+}
+</script>
+```
+
+Use real profile URLs from `siteContent`; omit fields you cannot verify.
+
+### On-page semantics (components)
+
+- **One `<h1>`** per page — hero name/headline only
+- Section titles: `<h2>`; subsections: `<h3>` — never skip levels
+- Wrap page in `<main id="main">` (already in `App.tsx`)
+- Section `id`s match nav hash targets (`#projects`, `#experience`, …)
+- Images: descriptive `alt` (project title + context); decorative images use `alt=""`
+- Links: meaningful text ("View on GitHub"), not "click here"
+- Project cards: title + description are indexable text, not only visuals
+
+### Content (`src/content/`)
+
+- **Pitch** doubles as meta description — front-load role + value prop
+- Project **descriptions**: concrete outcomes, stack, and scope in 1–2 sentences
+- Avoid duplicate titles across projects/sections
+
+### Performance (SEO-adjacent)
+
+- Lazy-load below-fold media; prefer WebP/AVIF for photos
+- `width`/`height` on images to reduce CLS
+- Preconnect only to origins actually used (fonts, analytics)
+
+---
+
+## Patterns ✅
+
+```html
+<!-- index.html -->
+<title>Your Name — AI Engineer · Full-Stack · LLMOps</title>
+<meta name="description" content="AI Engineer building scalable EdTech products with LLMs, RAG, and AI-augmented engineering." />
+<meta property="og:image" content="https://example.com/og-card.png" />
+<link rel="canonical" href="https://example.com/" />
+```
+
+```tsx
+// Hero — sole h1
+<h1>{siteContent.name}</h1>
+<p>{siteContent.title}</p>
+
+// Section — h2 with stable id for nav/anchors
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading">Projects</h2>
+</section>
+
+// Project image
+<img src={project.imageUrl} alt={`${project.title} — ${project.description}`} loading="lazy" />
+```
+
+---
+
+## Anti-patterns ❌
+
+| Don't | Why |
+|-------|-----|
+| Multiple `<h1>` or skipped heading levels | Breaks outline; hurts accessibility and SEO signals |
+| Generic title (`Portfolio`, `Home`) | No ranking signal for name/role searches |
+| Meta description >160 chars or duplicated across pages | Truncated in SERPs; looks spammy |
+| `og:image` relative URL or missing dimensions | Broken/unstable social previews |
+| Keyword stuffing in title, description, or alt text | Penalized; reads poorly |
+| Empty or filename-only `alt` (`screenshot.png`) | Lost context for crawlers and screen readers |
+| Critical text in images/Canvas only | Invisible to crawlers |
+| `noindex` on production homepage | Blocks indexing entirely |
+| Hash-only URLs as canonical for distinct content | v1 is fine for one page; don't use `#/page` as separate SEO URLs without SSR/prerender |
+| Blocking `robots.txt` on `/` or missing sitemap | Reduces discoverability |
+| Stale `index.html` meta after DB/content rebuild | Mismatch between SERP snippet and live site |
+
+---
+
+## When adding routes (post-v1)
+
+- Give each public route its own title, description, canonical, and OG tags
+- Prefer path URLs (`/projects/foo`) over hash routes for indexable pages
+- Consider prerender/SSR or a post-build meta injection step for SPAs

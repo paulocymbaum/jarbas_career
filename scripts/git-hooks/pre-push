@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+# Auto-rebase before push: the deploy bot commits "chore: sync GitHub activity
+# [skip ci]" to main every 12h, which rejects plain pushes (non-fast-forward).
+#
+# Git snapshots the refs to push BEFORE this hook runs, so after rebasing we
+# must abort and let the caller re-push — the second push is then a
+# fast-forward. `npm run push` wraps this into a single automatic command.
+
+remote="$1"
+branch="$(git symbolic-ref --short -q HEAD)"
+[ -n "$branch" ] || exit 0
+
+git fetch --quiet "$remote" "$branch" 2>/dev/null || exit 0
+
+upstream="refs/remotes/$remote/$branch"
+behind="$(git rev-list --count "HEAD..$upstream" 2>/dev/null)" || exit 0
+[ "$behind" -gt 0 ] || exit 0
+
+echo "pre-push: $remote/$branch is $behind commit(s) ahead — rebasing local work..."
+if git rebase --autostash "$upstream"; then
+  echo "pre-push: rebased onto $remote/$branch. Re-run your push to publish."
+  exit 1
+fi
+
+echo "pre-push: rebase hit conflicts. Resolve them, run 'git rebase --continue'," >&2
+echo "          then 'git push' again — or 'git rebase --abort' to undo." >&2
+exit 1

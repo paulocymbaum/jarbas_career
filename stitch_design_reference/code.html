@@ -1,0 +1,1499 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+/* Refined Animation & Micro-Interaction Styling */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+.animate-flow-dash {
+  stroke-dasharray: 6 6;
+  animation: flowDash 1.2s linear infinite;
+}
+.pulse-subtle {
+  animation: pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* Scroll reveal transition primitives */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Interactive card hover sheen & transform */
+.interactive-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(76, 215, 246, 0.45);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 24px 2px rgba(76, 215, 246, 0.1);
+}
+/* Chip hover physics */
+.chip-hover {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.chip-hover:hover {
+  transform: translateY(-1px) scale(1.03);
+  border-color: rgba(180, 197, 255, 0.5);
+}
+/* Stage Card Transitions */
+.stage-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.3s ease;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init { opacity: 1 !important; transform: none !important; }
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-secondary-fixed":"#001f26","outline-variant":"#434655","error-container":"#93000a","tertiary-fixed":"#6ffbbe","on-primary-fixed":"#00174b","primary":"#b4c5ff","inverse-on-surface":"#2c303a","secondary-fixed-dim":"#4cd7f6","on-primary-container":"#eeefff","secondary":"#4cd7f6","primary-fixed":"#dbe1ff","background":"#0f131c","surface-container-highest":"#31353f","inverse-primary":"#0053db","on-surface":"#dfe2ef","surface-container":"#1c1f29","tertiary":"#4edea3","surface-tint":"#b4c5ff","on-tertiary-fixed-variant":"#005236","on-error":"#690005","primary-fixed-dim":"#b4c5ff","on-secondary":"#003640","surface-bright":"#353943","outline":"#8d90a0","on-tertiary-fixed":"#002113","on-background":"#dfe2ef","primary-container":"#2563eb","surface-container-lowest":"#0a0e17","surface-dim":"#0f131c","on-tertiary":"#003824","surface":"#0f131c","tertiary-container":"#007d55","tertiary-fixed-dim":"#4edea3","on-primary-fixed-variant":"#003ea8","secondary-fixed":"#acedff","surface-container-low":"#181b25","surface-variant":"#31353f","on-tertiary-container":"#bdffdb","secondary-container":"#03b5d3","on-secondary-fixed-variant":"#004e5c","inverse-surface":"#dfe2ef","on-error-container":"#ffdad6","surface-container-high":"#262a34","error":"#ffb4ab","on-secondary-container":"#00424e","on-primary":"#002a78","on-surface-variant":"#c3c6d7"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"1.25rem","space-3xl":"4.5rem","space-2xs":"0.25rem","space-md":"1rem","margin-tablet":"2rem",margin:"1rem","space-lg":"1.5rem","margin-desktop":"4rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-xs":"0.5rem","space-sm":"0.75rem","space-2xl":"3rem"},fontFamily:{"headline-lg":["Geist"],"headline-xl":["Geist"],"code-xs":["JetBrains Mono"],"body-md":["Geist"],"headline-md":["Geist"],"title-md":["Geist"],"body-lg":["Geist"],"body-sm":["Geist"],"code-sm":["JetBrains Mono"],"label-caps":["JetBrains Mono"],"metric-display":["Geist"],"headline-lg-mobile":["Geist"],"title-lg":["Geist"],"headline-xl-mobile":["Geist"]},fontSize:{"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.03em",fontWeight:"600"}],"headline-xl":["56px",{lineHeight:"64px",letterSpacing:"-0.04em",fontWeight:"700"}],"code-xs":["11px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"code-sm":["12px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-caps":["11px",{lineHeight:"16px",letterSpacing:"0.08em",fontWeight:"600"}],"metric-display":["44px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"title-lg":["20px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-xl-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.03em",fontWeight:"700"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-outline-variant/20 transition-all duration-300"><div class="h-16 max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><a class="group flex items-center gap-space-xs text-on-surface transition-transform duration-200 active:scale-95" data-path="overview" href="#"><div class="relative flex h-2.5 w-2.5 items-center justify-center"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary shadow-[0_0_8px_#4edea3]"></span></div><span class="font-title-md text-title-md text-on-surface tracking-tight group-hover:text-primary transition-colors">Your Name</span></a><span class="hidden sm:inline-flex items-center px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase border border-outline-variant/30 hover:border-outline-variant/60 transition-colors">AI Systems &amp; EdTech Architect</span></div><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-on-surface font-title-md bg-surface-container-high rounded px-space-xs py-space-2xs"><a aria-current="page" class="transition-all text-on-surface font-title-md bg-surface-container-high rounded px-space-xs py-space-2xs hover:shadow-inner" data-path="overview" href="#">Overview</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-2xs hover:-translate-y-0.5" data-path="selected-works" href="#featured-projects">Selected Works</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-2xs hover:-translate-y-0.5" data-path="system-architecture" href="#praxis-architecture">System Architecture</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-2xs hover:-translate-y-0.5" data-path="experience" href="#career-telemetry">Experience</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-2xs hover:-translate-y-0.5" data-path="writing" href="#">Writing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-2xs hover:-translate-y-0.5" data-path="github-activity" href="#github-activity">GitHub Activity</a></nav><div class="flex items-center gap-space-xs sm:gap-space-sm shrink-0"><div class="relative group hidden sm:block"><button class="inline-flex items-center gap-space-2xs px-space-sm py-space-xs rounded bg-surface-container text-on-surface font-body-sm text-body-sm hover:bg-surface-container-high hover:text-on-surface transition-all border border-outline-variant/40 active:scale-95" type="button"><span class="material-symbols-outlined text-[16px] text-on-surface-variant transition-transform group-hover:-translate-y-0.5">description</span><span>Resume</span><span class="material-symbols-outlined text-[14px] text-on-surface-variant transition-transform group-hover:rotate-180">expand_more</span></button><div class="absolute right-0 mt-space-2xs w-48 py-space-xs bg-surface-container-high rounded shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.12)] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 flex flex-col z-50"><a class="px-space-md py-space-xs text-on-surface font-code-xs text-code-xs hover:bg-surface-container-highest hover:text-on-surface flex items-center justify-between transition-colors" href="#"><span>Technical (PDF)</span><span class="material-symbols-outlined text-[14px]">download</span></a><a class="px-space-md py-space-xs text-on-surface font-code-xs text-code-xs hover:bg-surface-container-highest hover:text-on-surface flex items-center justify-between transition-colors" href="#"><span>Executive Summary</span><span class="material-symbols-outlined text-[14px]">download</span></a></div></div><a class="inline-flex items-center gap-space-2xs px-space-sm sm:px-space-md py-space-xs rounded bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-inverse-primary hover:text-on-primary-container transition-all duration-200 active:scale-95 shadow-[0_0_16px_rgba(37,99,235,0.35)] hover:shadow-[0_0_24px_rgba(37,99,235,0.6)]" data-path="contact" href="mailto:you@example.com"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="hidden md:inline">Schedule Discussion</span><span class="md:hidden">Connect</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 hover:scale-105 transition-transform"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-14rem)]"><div class="flex flex-col w-full relative">
+<!-- Ambient Atmospheric Glows with subtle pulse -->
+<div class="absolute top-12 left-1/2 -translate-x-1/2 w-[780px] h-[340px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10 pulse-subtle"></div>
+<div class="absolute top-[680px] -right-24 w-[460px] h-[380px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none -z-10 pulse-subtle" style="animation-delay: 1.5s;"></div>
+<div class="absolute top-[1400px] -left-20 w-[520px] h-[400px] bg-tertiary/5 rounded-full blur-[130px] pointer-events-none -z-10 pulse-subtle" style="animation-delay: 2.2s;"></div>
+<!-- SECTION 1: TOP IMPACT HERO & EXECUTIVE PROOF -->
+<section class="reveal-init w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-space-lg md:pt-space-2xl pb-space-xl reveal-visible"><!-- Live Status Pill -->
+<div class="flex items-center gap-space-xs mb-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/30 backdrop-blur-md shadow-sm hover:border-tertiary/40 transition-colors">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Active Projects</span>
+<span class="text-outline">·</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Praxis &amp; YourCompany Architect · Open to Advisory &amp; Lead Roles</span>
+</div>
+</div>
+<!-- Hero Identity & Pitch -->
+<div class="max-w-[920px] flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-12 h-12 rounded-xl bg-surface-container-highest overflow-hidden border border-outline-variant/40 flex items-center justify-center shrink-0 group">
+<img alt="Portrait of Your Name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6OwHcEPwPA9LjgQyMa1Mce9Ec10HrB2oj8INJS8RdwqIRCe0iPbptRch8lwR0PCqauY8jdLKVpoTjM87aMDwtXoKLwFJ5R96aQbFfRdNx16Cq1aQrSeXZJ0Pat40FpZSg75U2hbcTcnMvfvua04U1Vulp-emHDKSCW7uTk-lJNGvQAdKf7zqoKufVN02e-7VM-_7l3bD4Z6ETjY2eCIY8XDAxnvncS8Lb2xXw3A">
+</div>
+<div class="flex flex-col">
+<h2 class="font-title-lg text-title-lg text-on-surface font-semibold tracking-tight">Your Name</h2>
+<span class="font-code-xs text-code-xs text-secondary">Automation &amp; Control Engineer (FEI) · AI Systems Architect</span>
+</div>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-[1.15]">
+    Architecting AI systems for <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary animate-pulse duration-[4000ms]">human learning</span> &amp; complex unstructured data.
+  </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-[800px]">
+    Founder &amp; Lead Engineer building systems that bridge deterministic rigor with probabilistic AI. Specializing in educational harnesses, LLM agent workflows, and transforming complex unstructured curricula into structured intelligence.
+  </p>
+<!-- Authentic Focus Area Badges with interactive chip micro-interactions -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="chip-hover cursor-default px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/30 font-code-xs text-code-xs text-on-surface">✦ EdTech Systems</span>
+<span class="chip-hover cursor-default px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/30 font-code-xs text-code-xs text-secondary">⚡ AI Agents &amp; RAG</span>
+<span class="chip-hover cursor-default px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/30 font-code-xs text-code-xs text-tertiary">⚯ Complex Unstructured Data</span>
+<span class="chip-hover cursor-default px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/30 font-code-xs text-code-xs text-on-surface-variant">React / TypeScript</span>
+<span class="chip-hover cursor-default px-space-sm py-1 rounded-full bg-surface-container-high border border-outline-variant/30 font-code-xs text-code-xs text-on-surface-variant">Python &amp; FastAPI</span>
+</div>
+<!-- Action Cluster with magnetic/glow hover physics -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-sm">
+<a class="group inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-inverse-primary transition-all duration-200 active:scale-95 shadow-[0_0_24px_rgba(37,99,235,0.4)] hover:shadow-[0_0_32px_rgba(37,99,235,0.65)] hover:-translate-y-0.5" href="#featured-projects">
+<span>Explore Flagship Projects</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-y-1">south</span>
+</a>
+<a class="group inline-flex items-center gap-space-2xs px-space-md py-space-sm rounded-lg bg-surface-container-high text-on-surface font-title-md text-title-md hover:bg-surface-container-highest transition-all duration-200 border border-outline-variant/30 active:scale-95 hover:border-outline hover:-translate-y-0.5" href="mailto:you@example.com">
+<span class="material-symbols-outlined text-[18px] text-primary transition-transform duration-200 group-hover:scale-110">mail</span>
+<span>Get in Touch</span>
+</a>
+<div class="flex items-center gap-space-2xs pl-space-xs">
+<a class="p-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all duration-200 active:scale-90 hover:-translate-y-0.5 hover:border hover:border-outline-variant/50" href="https://github.com/your-username" rel="noopener noreferrer" target="_blank" title="GitHub">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</a>
+<a class="p-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all duration-200 active:scale-90 hover:-translate-y-0.5 hover:border hover:border-outline-variant/50" href="https://linkedin.com/in/your-username" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</a>
+</div>
+</div>
+</div></section>
+<!-- SECTION 2: INTERACTIVE ROLE SWITCHER FILTER BAR -->
+<section class="sticky top-16 z-30 w-full bg-surface/90 backdrop-blur-xl py-space-sm shadow-md border-y border-outline-variant/20"><div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-code-xs text-code-xs text-outline uppercase tracking-wider hidden md:inline">Focus Areas:</span>
+<div class="inline-flex p-1 rounded-full bg-surface-container-high shadow-inner" id="role-pill-group">
+<button class="role-tab px-space-sm py-1.5 rounded-full font-code-sm text-code-sm transition-all duration-200 active:scale-95 text-on-surface-variant" data-filter="all">
+        All Systems
+      </button>
+<button class="role-tab px-space-sm py-1.5 rounded-full font-code-sm text-code-sm hover:text-on-surface hover:bg-surface-container transition-all duration-200 active:scale-95 text-on-surface-variant" data-filter="edtech">
+        ✦ EdTech &amp; AI Agents
+      </button>
+<button class="role-tab px-space-sm py-1.5 rounded-full font-code-sm text-code-sm hover:text-on-surface hover:bg-surface-container transition-all duration-200 active:scale-95 bg-primary-container text-on-primary-container font-semibold shadow-[0_0_12px_rgba(37,99,235,0.35)]" data-filter="fullstack">
+        ⚡ Fullstack &amp; Engines
+      </button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 font-code-xs text-code-xs text-on-surface-variant">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span>Deterministic Structure</span>
+<span class="text-outline">+</span>
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span>Agentic AI Tutoring</span>
+</div>
+</div>
+</div></section>
+<!-- SECTION 3: THE PROOF-FIRST BENTO GRID CENTERPIECE -->
+<section class="reveal-init w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-space-2xl pb-space-3xl reveal-visible" id="featured-projects">
+<div class="flex flex-col gap-space-2xs mb-space-xl">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Flagship Systems</span>
+<span class="text-outline">·</span>
+<span class="font-code-xs text-code-xs text-on-surface-variant">Independently Owned Architectures &amp; Production Platforms</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Primary Engineering Creations</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-lg">
+<!-- PROJECT 1: PRAXIS (Primary Feature - Col-span 7) -->
+<div class="bento-tile interactive-card group lg:col-span-7 rounded-2xl bg-surface-container-low border border-outline-variant/30 p-space-lg md:p-space-xl flex flex-col justify-between shadow-xl opacity-100 scale-100" data-roles="edtech fullstack">
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[20px] text-tertiary transition-transform duration-300 group-hover:rotate-45">account_tree</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">github.com/your-username/praxis</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 font-code-xs text-code-xs text-tertiary font-semibold border border-tertiary/30 shadow-[0_0_10px_rgba(78,222,163,0.15)]">Flagship Harness</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight group-hover:text-primary transition-colors">Praxis — Open-Source Educational Harness &amp; Interactive UI</h3>
+<p class="font-body-md text-body-md text-secondary mt-1 font-medium">
+            Self-directed coding mastery through project-based learning with AI tutoring.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            Engineered a complete educational operating system utilizing a content-on-disk graph taxonomy (topic graph). Features dedicated Cursor Agent harnesses for Socratic tutoring, rubric-based AI project evaluation, dev-time locale sync, and custom Vite plugins.
+          </p>
+</div>
+<!-- Architecture Core Breakdown -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 transition-colors group-hover:border-tertiary/30">
+<div class="flex flex-col gap-0.5">
+<span class="font-code-xs text-code-xs text-outline uppercase tracking-wider">Curriculum Architecture</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">Content-on-Disk Graph</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Strict JSON-schema topic graph indexing</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-code-xs text-code-xs text-outline uppercase tracking-wider">Agent Tutor Harness</span>
+<span class="font-title-md text-title-md text-tertiary font-semibold">Socratic &amp; Rubric Correction</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Deterministic verification gates for code review</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-space-2xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangGraph</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">React</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">TypeScript</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Topic Graph</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Cursor Agent</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Vite Plugins</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-space-sm">
+<a class="group/link inline-flex items-center gap-1.5 font-code-sm text-code-sm text-tertiary hover:underline" href="https://ed-harness-landing-page.vercel.app" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover/link:rotate-12">language</span>
+<span>Live Demo</span>
+</a>
+<a class="group/repo inline-flex items-center gap-1 font-code-sm text-code-sm text-primary hover:text-on-surface transition-colors" href="https://github.com/your-username/praxis" rel="noopener noreferrer" target="_blank">
+<span>Repository</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover/repo:translate-x-1 group-hover/repo:-translate-y-0.5">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- PROJECT 2: YourCompany (Primary Feature - Col-span 5) -->
+<div class="bento-tile interactive-card group lg:col-span-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 p-space-lg md:p-space-xl flex flex-col justify-between shadow-xl opacity-100 scale-100" data-roles="edtech fullstack">
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[20px] text-secondary transition-transform duration-300 group-hover:scale-125">auto_awesome</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">YourCompany EdTech SaaS</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary/10 font-code-xs text-code-xs text-secondary font-semibold border border-secondary/30 shadow-[0_0_10px_rgba(76,215,246,0.15)]">Co-founder &amp; Lead</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight group-hover:text-secondary transition-colors">YourCompany — AI-Powered EdTech SaaS &amp; CEFR Engine</h3>
+<p class="font-body-md text-body-md text-secondary mt-1 font-medium">
+            Automated curriculum generation and teacher workflows.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+            Engineered the multi-provider LLM pipeline transforming complex, unstructured educational materials into CEFR-compliant (A1-C2) structured lesson models. Integrates Groq, OpenAI, and Claude with LangSmith observability and PostgreSQL backend.
+          </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col gap-space-xs group-hover:border-secondary/30 transition-colors">
+<span class="font-code-xs text-code-xs text-outline uppercase tracking-wider">Pedagogic LLM Pipeline</span>
+<div class="font-body-sm text-body-sm text-on-surface">
+            Multi-provider routing (<span class="text-secondary font-medium">Groq · Claude · OpenAI</span>) with LangChain fallback chains and strict CEFR schema validators.
+          </div>
+</div>
+<div class="flex flex-wrap gap-space-2xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">FastAPI</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Python</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangChain</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangSmith</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Supabase</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">PostgreSQL</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-code-xs text-code-xs text-outline">Teacher Content Automation</span>
+<span class="font-code-sm text-code-sm text-primary flex items-center gap-1 group-hover:text-secondary transition-colors">
+<span>Production SaaS</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified</span>
+</span>
+</div>
+</div>
+<!-- PROJECT 3: MCP EDTECH PROTOCOL SERVER (Col-span 6) -->
+<div class="bento-tile interactive-card group lg:col-span-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 p-space-lg flex flex-col justify-between shadow-xl opacity-100 scale-100" data-roles="edtech fullstack">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-2xs">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Protocol Architecture</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-code-xs text-code-xs text-on-surface border border-outline-variant/30">MCP + DDD</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-tertiary transition-colors">Domain-Driven EdTech MCP Server</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Clean Architecture &amp; Domain-Driven Design Model Context Protocol server. Connects LangGraph autonomous agents with Supabase vector retrieval and automated YouTube educational discovery to feed interactive learning workflows.
+        </p>
+<div class="flex flex-wrap gap-space-2xs pt-space-xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Model Context Protocol</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Python</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangGraph</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Vector Search</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-code-xs text-code-xs text-outline">Clean Architecture Specification</span>
+<span class="material-symbols-outlined text-tertiary text-[20px] transition-transform duration-300 group-hover:scale-110">dns</span>
+</div>
+</div>
+<!-- PROJECT 4: PIXELANEA PRO (Col-span 6) -->
+<div class="bento-tile interactive-card group lg:col-span-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 p-space-lg flex flex-col justify-between shadow-xl opacity-100 scale-100" data-roles="fullstack">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-2xs">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Creative Engineering</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest font-code-xs text-code-xs text-on-surface border border-outline-variant/30">C++17 + React + SQLite</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">Pixelanea Pro</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Local-first zero-cloud pixel editor and engine. Implements custom memory arena architecture supporting a 500-step instant deterministic undo/redo buffer with zero cloud latency and full offline resilience.
+        </p>
+<div class="flex flex-wrap gap-space-2xs pt-space-xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">C++17</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Emscripten/WASM</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">React</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Deterministic State</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-code-xs text-code-xs text-outline">60 FPS Deterministic Canvas</span>
+<span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300 group-hover:rotate-90">grid_4x4</span>
+</div>
+</div>
+</div>
+</section><section class="reveal-init w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-3xl reveal-visible" id="praxis-architecture"><div class="rounded-3xl bg-surface-container-low border border-outline-variant/30 p-space-lg md:p-space-2xl shadow-2xl relative overflow-hidden flex flex-col gap-space-xl"><div class="absolute -right-24 -top-24 w-96 h-96 bg-primary/10 rounded-full blur-[130px] pointer-events-none pulse-subtle"></div><div class="absolute -left-20 bottom-0 w-80 h-80 bg-tertiary/10 rounded-full blur-[120px] pointer-events-none pulse-subtle" style="animation-delay: 1.8s;"></div><div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-outline-variant/30 pb-space-lg relative z-10"><div class="flex flex-col gap-space-2xs"><div class="flex items-center gap-space-2xs"><span class="material-symbols-outlined text-[18px] text-tertiary">schema</span><span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">System Deep-Dive</span><span class="text-outline">·</span><span class="font-code-xs text-code-xs text-on-surface-variant">Deterministic Graph → Agentic Runtime</span></div><h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Praxis Architecture: Topic Graph to Agent Tutor Flow</h2></div><p class="font-body-md text-body-md text-on-surface-variant max-w-[500px]">How a zero-dependency markdown &amp; topic-graph on disk drives Cursor AI agents, automated validation gates, and interactive student interfaces.</p></div>
+<!-- Interactive Stage Filter Bar -->
+<div class="flex flex-col gap-space-sm relative z-10">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Pipeline Stage Selector:</span>
+<span class="font-code-xs text-code-xs text-secondary hidden sm:inline" id="active-stage-indicator">End-to-End Pipeline Active (4/4 Stages)</span>
+</div>
+<div class="flex items-center gap-1.5 text-code-xs font-code-xs text-on-surface-variant">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span>Interactive Stage Inspector</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs p-1.5 rounded-2xl bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-md shadow-inner" id="stage-filter-group" role="tablist">
+<button class="stage-toggle-btn px-space-sm py-1.5 rounded-xl font-code-sm text-code-sm font-semibold transition-all duration-200 active:scale-95 bg-primary-container text-on-primary-container shadow-[0_0_12px_rgba(37,99,235,0.35)]" data-stage="all" role="tab" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">timeline</span>
+<span>All Stages (End-to-End Pipeline)</span>
+</span>
+</button>
+<button class="stage-toggle-btn px-space-sm py-1.5 rounded-xl font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 active:scale-95" data-stage="01" role="tab" type="button">
+<span class="flex items-center gap-1.5">
+<span class="font-code-xs text-tertiary font-bold">01</span>
+<span>01 · Topic Taxonomy</span>
+</span>
+</button>
+<button class="stage-toggle-btn px-space-sm py-1.5 rounded-xl font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 active:scale-95" data-stage="02" role="tab" type="button">
+<span class="flex items-center gap-1.5">
+<span class="font-code-xs text-secondary font-bold">02</span>
+<span>02 · Harness &amp; Bridge</span>
+</span>
+</button>
+<button class="stage-toggle-btn px-space-sm py-1.5 rounded-xl font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 active:scale-95" data-stage="03" role="tab" type="button">
+<span class="flex items-center gap-1.5">
+<span class="font-code-xs text-primary font-bold">03</span>
+<span>03 · AI Orchestration</span>
+</span>
+</button>
+<button class="stage-toggle-btn px-space-sm py-1.5 rounded-xl font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 active:scale-95" data-stage="04" role="tab" type="button">
+<span class="flex items-center gap-1.5">
+<span class="font-code-xs text-on-surface font-bold">04</span>
+<span>04 · Learning UI</span>
+</span>
+</button>
+</div>
+<!-- Dynamic Stage Inspector / Context Detail Note -->
+<div class="rounded-xl bg-surface-container-lowest/90 border border-outline-variant/30 p-space-sm sm:p-space-md transition-all duration-300" id="stage-inspector-panel">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-xs border-b border-outline-variant/20">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-md bg-secondary/15 flex items-center justify-center text-secondary transition-transform duration-300">
+<span class="material-symbols-outlined text-[16px]" id="inspector-icon">terminal</span>
+</div>
+<span class="font-code-xs text-code-xs font-semibold uppercase tracking-wider text-secondary" id="inspector-badge">Stage Inspector · Context Telemetry</span>
+<span class="text-outline">·</span>
+<span class="font-code-xs text-code-xs text-on-surface transition-opacity duration-200" id="inspector-title">End-to-End Pipeline Active</span>
+</div>
+<span class="font-code-xs text-code-xs text-outline" id="inspector-meta">Data Contract: Direct Disk Markdown → Vite API → Cursor Prompt Protocol</span>
+</div>
+<div class="pt-space-xs flex flex-col md:flex-row md:items-center justify-between gap-space-xs text-code-xs font-code-xs text-on-surface-variant transition-opacity duration-200" id="inspector-body">
+<div class="flex flex-wrap items-center gap-x-space-md gap-y-1">
+<span class="flex items-center gap-1"><span class="text-outline">Files:</span> <span class="text-tertiary" id="inspector-files">graph/courses/*.graph.txt · .cursor/language.json · frontend/src</span></span>
+<span class="flex items-center gap-1"><span class="text-outline">Validation Gate:</span> <span class="text-secondary" id="inspector-gate">node --test (DAG) + Socratic Rubric (&gt;80 threshold)</span></span>
+</div>
+<span class="inline-flex items-center gap-1.5 text-tertiary font-semibold" id="inspector-status"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span> 100% Deterministic Pacing Guarantee</span>
+</div>
+</div>
+</div>
+<!-- Animated Flow Line Indicator between Stages in Praxis -->
+<div class="hidden lg:flex items-center justify-between px-6 -my-2 relative z-10 text-outline-variant/50">
+<div class="flex-1 border-t-2 border-dashed border-tertiary/40 relative">
+<span class="absolute -top-1.5 right-1/2 w-3 h-3 rounded-full bg-tertiary/80 blur-[2px] animate-pulse"></span>
+</div>
+<span class="text-xs font-code-xs px-2 text-outline">DAG contract flow</span>
+<div class="flex-1 border-t-2 border-dashed border-secondary/40 relative">
+<span class="absolute -top-1.5 right-1/2 w-3 h-3 rounded-full bg-secondary/80 blur-[2px] animate-pulse" style="animation-delay: 0.6s;"></span>
+</div>
+<span class="text-xs font-code-xs px-2 text-outline">Vite dev sync</span>
+<div class="flex-1 border-t-2 border-dashed border-primary/40 relative">
+<span class="absolute -top-1.5 right-1/2 w-3 h-3 rounded-full bg-primary/80 blur-[2px] animate-pulse" style="animation-delay: 1.2s;"></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md relative z-10" id="architecture-stages-container"><div class="stage-card rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 p-space-md flex flex-col justify-between gap-space-md relative hover:border-tertiary/50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300" data-stage="01"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-tertiary/20 text-tertiary font-code-sm text-code-sm font-bold flex items-center justify-center border border-tertiary/40">01</span><span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-code-xs text-code-xs font-semibold border border-tertiary/30">Taxonomy</span></div><div class="flex flex-col gap-0.5"><h3 class="font-title-md text-title-md text-on-surface font-bold">Topic Taxonomy &amp; Scaffolding</h3><span class="font-code-xs text-code-xs text-outline">graph/courses/*.graph.txt</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Single source of truth for curriculum dependencies. Strict prerequisite graphs enforce DAG structure and sequential mastery.</p><ul class="flex flex-col gap-space-2xs font-code-xs text-code-xs text-on-surface-variant"><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-tertiary mt-0.5">check_circle</span><span>Strict prerequisite topic graph parsing</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-tertiary mt-0.5">check_circle</span><span>Markdown contracts &amp; test gates (<code class="text-tertiary">node --test</code>)</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-tertiary mt-0.5">check_circle</span><span>Static catalog generation into JSON</span></li></ul></div><div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between text-code-xs font-code-xs"><span class="text-outline">Deterministic Base</span><span class="text-tertiary">Catalog Sync</span></div></div><div class="stage-card rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 p-space-md flex flex-col justify-between gap-space-md relative hover:border-secondary/50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300" data-stage="02"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-secondary/20 text-secondary font-code-sm text-code-sm font-bold flex items-center justify-center border border-secondary/40">02</span><span class="px-space-xs py-0.5 rounded bg-secondary/10 text-secondary font-code-xs text-code-xs font-semibold border border-secondary/30">Dev Bridge</span></div><div class="flex flex-col gap-0.5"><h3 class="font-title-md text-title-md text-on-surface font-bold">Agent Harness &amp; Bridge</h3><span class="font-code-xs text-code-xs text-outline">.cursor/language.json</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Real-time bridge connecting local Vite dev runtime directly to Cursor Agent prompts and student configuration state.</p><ul class="flex flex-col gap-space-2xs font-code-xs text-code-xs text-on-surface-variant"><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-secondary mt-0.5">sync_alt</span><span>Dev-time sync via Vite <code class="text-secondary">/api/locale</code></span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-secondary mt-0.5">sync_alt</span><span>Session hooks (<code class="text-secondary">get-user-language.js</code>)</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-secondary mt-0.5">sync_alt</span><span>Locale-aware cognitive prompt injection</span></li></ul></div><div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between text-code-xs font-code-xs"><span class="text-outline">Vite Middleware</span><span class="text-secondary">Cursor Sync</span></div></div><div class="stage-card rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 p-space-md flex flex-col justify-between gap-space-md relative hover:border-primary/50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300" data-stage="03"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-code-sm text-code-sm font-bold flex items-center justify-center">03</span><span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-code-xs text-code-xs font-semibold border border-primary/30">AI Orchestration</span></div><div class="flex flex-col gap-0.5"><h3 class="font-title-md text-title-md text-on-surface font-bold">Dual Cursor Agent Harness</h3><span class="font-code-xs text-code-xs text-outline">@teacher-socratic · @review</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Two specialized role prompts governed by curriculum constraints for guided pedagogy and verified code completion.</p><ul class="flex flex-col gap-space-2xs font-code-xs text-code-xs text-on-surface-variant"><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary mt-0.5">psychology</span><span>Socratic tutor: questions before answers</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary mt-0.5">psychology</span><span>Predict-first cognitive scaffolding loops</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary mt-0.5">psychology</span><span>Project rubric validation (80+ score gate)</span></li></ul></div><div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between text-code-xs font-code-xs"><span class="text-outline">LLM Guardrails</span><span class="text-primary">Rubric Engine</span></div></div><div class="stage-card rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 p-space-md flex flex-col justify-between gap-space-md relative hover:border-outline hover:-translate-y-1 hover:shadow-lg transition-all duration-300" data-stage="04"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface font-code-sm text-code-sm font-bold flex items-center justify-center border border-outline-variant/40">04</span><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-xs text-code-xs font-semibold border border-outline-variant/30">Presentation</span></div><div class="flex flex-col gap-0.5"><h3 class="font-title-md text-title-md text-on-surface font-bold">Interactive React Learning UI</h3><span class="font-code-xs text-code-xs text-outline">frontend/src/ (React 18 + Vite)</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Reactive student cockpit with deep curriculum visualization, progress tracking, and bidirectional agent handshakes.</p><ul class="flex flex-col gap-space-2xs font-code-xs text-code-xs text-on-surface-variant"><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface mt-0.5">interactive_space</span><span>Real-time quiz evaluation &amp; state persistence</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface mt-0.5">interactive_space</span><span>Project starter delivery &amp; code submission</span></li><li class="flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-on-surface mt-0.5">interactive_space</span><span>Focus timer &amp; learning telemetry pipeline</span></li></ul></div><div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between text-code-xs font-code-xs"><span class="text-outline">Zustand + Tailwind</span><span class="text-on-surface">SPA Runtime</span></div></div></div><div class="p-space-md rounded-2xl bg-surface-container border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-md relative z-10 hover:border-tertiary/40 transition-colors"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary shrink-0"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface font-semibold">Deterministic Guarantee: Zero LLM Hallucinations in Curriculum Structure</span><span class="font-body-sm text-body-sm text-on-surface-variant">By anchoring LLM agents directly to on-disk graphs and markdown test contracts, educational pacing remains mathematically sound.</span></div></div><button class="shrink-0 inline-flex items-center gap-1.5 px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all duration-200 active:scale-95 font-code-sm text-code-sm border border-outline-variant/30 group hover:border-tertiary/50" id="open-specs-btn" type="button"><span>Inspect Architecture Specs</span><span class="material-symbols-outlined text-[16px] text-tertiary transition-transform duration-200 group-hover:rotate-45">code</span></button></div></div></section>
+<!-- SECTION 4: ENTERPRISE EXPERIENCE & PEDIGREE TIMELINE -->
+<section class="reveal-init w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pb-space-3xl" id="github-activity">
+  <div class="rounded-3xl bg-surface-container-low border border-outline-variant/30 p-space-lg md:p-space-2xl shadow-2xl relative overflow-hidden flex flex-col gap-space-xl">
+    <div class="absolute -left-20 -top-20 w-80 h-80 bg-secondary/10 rounded-full blur-[130px] pointer-events-none pulse-subtle"></div>
+    <div class="absolute -right-24 bottom-0 w-80 h-80 bg-tertiary/10 rounded-full blur-[120px] pointer-events-none pulse-subtle" style="animation-delay: 2s;"></div>
+    
+    <!-- Section Header -->
+    <div class="flex flex-col gap-space-md border-b border-outline-variant/30 pb-space-lg relative z-10">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+    <div class="flex flex-col gap-space-2xs">
+      <div class="flex items-center gap-space-2xs">
+        <span class="material-symbols-outlined text-[18px] text-tertiary">terminal</span>
+        <span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Telemetry &amp; Audit Trail</span>
+        <span class="text-outline">·</span>
+        <span class="font-code-xs text-code-xs text-on-surface-variant" id="stream-telemetry-badge">Consolidated Telemetry · Public &amp; Enterprise Contribution Stream</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Engineering Cadence &amp; Activity</h2>
+    </div>
+    <a class="group inline-flex items-center gap-space-2xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all duration-200 border border-outline-variant/30 font-code-sm text-code-sm self-start md:self-auto hover:border-tertiary/50 active:scale-95 shadow-sm" href="https://github.com/your-username" rel="noopener noreferrer" target="_blank">
+      <span class="material-symbols-outlined text-[16px] text-tertiary transition-transform duration-200 group-hover:scale-110">code</span>
+      <span>github.com/your-username</span>
+      <span class="material-symbols-outlined text-[14px] text-outline group-hover:text-on-surface transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">arrow_outward</span>
+    </a>
+  </div>
+  
+</div>
+
+    <!-- Stats Cards Cluster -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md relative z-10" id="github-stats-cluster">
+  <div class="interactive-card p-space-md rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col justify-between gap-space-xs shadow-sm hover:border-tertiary/40 transition-all duration-300" id="stat-card-throughput">
+    <div class="flex items-center justify-between">
+      <span class="font-code-xs text-code-xs text-outline uppercase tracking-wider" id="stat-label-throughput">Annual Throughput</span>
+      <span class="material-symbols-outlined text-tertiary text-[20px] transition-transform duration-300" id="stat-icon-throughput">commit</span>
+    </div>
+    <div class="flex items-baseline gap-space-2xs mt-1">
+      <span class="font-metric-display text-metric-display text-on-surface font-bold tracking-tight transition-all duration-200" id="stat-value-throughput">1,324</span>
+      <span class="font-code-xs text-code-xs text-tertiary font-semibold" id="stat-unit-throughput">contributions</span>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 border-t border-outline-variant/20 pt-space-xs transition-opacity duration-200" id="stat-desc-throughput">
+      Annual Verified Commits, PRs &amp; Code Reviews (Nov 2025 - Nov 2026)
+    </p>
+  </div>
+
+  <div class="interactive-card p-space-md rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col justify-between gap-space-xs shadow-sm hover:border-secondary/40 transition-all duration-300" id="stat-card-rigor">
+    <div class="flex items-center justify-between">
+      <span class="font-code-xs text-code-xs text-outline uppercase tracking-wider" id="stat-label-rigor">Deployment Rigor</span>
+      <span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-300" id="stat-icon-rigor">verified</span>
+    </div>
+    <div class="flex items-baseline gap-space-2xs mt-1">
+      <span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight transition-all duration-200" id="stat-value-rigor">100% On-Time</span>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 border-t border-outline-variant/20 pt-space-xs transition-opacity duration-200" id="stat-desc-rigor">
+      Core Banking &amp; EdTech Enterprise Repositories
+    </p>
+  </div>
+
+  <div class="interactive-card p-space-md rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col justify-between gap-space-xs shadow-sm hover:border-primary/40 transition-all duration-300" id="stat-card-ecosystem">
+    <div class="flex items-center justify-between">
+      <span class="font-code-xs text-code-xs text-outline uppercase tracking-wider" id="stat-label-ecosystem">Core Ecosystems</span>
+      <span class="material-symbols-outlined text-primary text-[20px] transition-transform duration-300" id="stat-icon-ecosystem">layers</span>
+    </div>
+    <div class="flex items-baseline gap-space-2xs mt-1">
+      <span class="font-title-lg text-title-lg text-primary font-bold tracking-tight transition-all duration-200" id="stat-value-ecosystem">TypeScript · Python · C++</span>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 border-t border-outline-variant/20 pt-space-xs transition-opacity duration-200" id="stat-desc-ecosystem">
+      Polyglot Systems: Agents, Compilers &amp; Reactive Frontends
+    </p>
+  </div>
+</div>
+
+    <!-- Contribution Heatmap Matrix Visual -->
+    <div class="rounded-2xl bg-surface-container-lowest/90 border border-outline-variant/30 p-space-md sm:p-space-lg relative z-10 flex flex-col gap-space-md shadow-inner overflow-hidden">
+      <div class="flex flex-wrap items-center justify-between gap-space-xs pb-space-xs border-b border-outline-variant/20">
+        <div class="flex items-center gap-space-xs">
+          <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+          <span class="font-code-sm text-code-sm text-on-surface font-semibold" id="heatmap-total-count">1,324 Contributions in the last year</span>
+          <span class="font-code-xs text-code-xs text-outline hidden sm:inline">· Public &amp; Private Enterprise Repos</span>
+        </div>
+        
+      </div>
+
+      <!-- Interactive SVG Contribution Heatmap (52 weeks x 7 days) -->
+      <div class="overflow-x-auto pb-2">
+        <div class="min-w-[760px]">
+          <svg viewBox="0 0 748 112" class="w-full h-auto text-outline font-code-xs text-[10px] select-none" aria-label="Contribution Graph for Your Name">
+            <!-- Month Labels -->
+            <g fill="#8d90a0" font-size="10" font-family="JetBrains Mono, monospace">
+              <text x="32" y="10">Nov</text>
+              <text x="88" y="10">Dec</text>
+              <text x="146" y="10">Jan</text>
+              <text x="206" y="10">Feb</text>
+              <text x="266" y="10">Mar</text>
+              <text x="326" y="10">Apr</text>
+              <text x="386" y="10">May</text>
+              <text x="446" y="10">Jun</text>
+              <text x="506" y="10">Jul</text>
+              <text x="566" y="10">Aug</text>
+              <text x="626" y="10">Sep</text>
+              <text x="686" y="10">Oct</text>
+            </g>
+            <!-- Day Labels -->
+            <g fill="#8d90a0" font-size="9" font-family="JetBrains Mono, monospace">
+              <text x="4" y="37">Mon</text>
+              <text x="4" y="65">Wed</text>
+              <text x="4" y="93">Fri</text>
+            </g>
+            <!-- Heatmap Matrix: 52 columns x 7 rows -->
+            <g transform="translate(30, 18)">
+              <!-- Column script generated matrix representation with real distribution -->
+              <rect x="0" y="0" width="10" height="10" rx="2" fill="#1b202e"><title>Nov 2025: 0 contributions</title></rect>
+              <rect x="0" y="14" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="0" y="28" width="10" height="10" rx="2" fill="#26a641"><title>5 contributions</title></rect>
+              <rect x="0" y="42" width="10" height="10" rx="2" fill="#39d353"><title>8 contributions</title></rect>
+              <rect x="0" y="56" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="0" y="70" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+              <rect x="0" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="14" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="14" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="14" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="14" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="14" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="14" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="14" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="28" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="28" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="28" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="28" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="28" y="56" width="10" height="10" rx="2" fill="#26a641"><title>5 contributions</title></rect>
+              <rect x="28" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="28" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="42" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="42" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="42" y="28" width="10" height="10" rx="2" fill="#39d353"><title>8 contributions</title></rect>
+              <rect x="42" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="42" y="56" width="10" height="10" rx="2" fill="#26a641"><title>5 contributions</title></rect>
+              <rect x="42" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+              <rect x="42" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="56" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="56" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="56" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="56" y="42" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="56" y="56" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="56" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="56" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="70" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="70" y="14" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="70" y="28" width="10" height="10" rx="2" fill="#39d353"><title>15 contributions</title></rect>
+              <rect x="70" y="42" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="70" y="56" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="70" y="70" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+              <rect x="70" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="84" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="84" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="84" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="84" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="84" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="84" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="84" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="98" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="98" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="98" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="98" y="42" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="98" y="56" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="98" y="70" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+              <rect x="98" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="112" y="0" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+              <rect x="112" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="112" y="28" width="10" height="10" rx="2" fill="#26a641"><title>5 contributions</title></rect>
+              <rect x="112" y="42" width="10" height="10" rx="2" fill="#39d353"><title>8 contributions</title></rect>
+              <rect x="112" y="56" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="112" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+              <rect x="112" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="126" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="126" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="126" y="28" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="126" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="126" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="126" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="126" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="140" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="140" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="140" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="140" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="140" y="56" width="10" height="10" rx="2" fill="#26a641"><title>5 contributions</title></rect>
+              <rect x="140" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="140" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="154" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="154" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="154" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="154" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="154" y="56" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="154" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="154" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="168" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="168" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="168" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="168" y="42" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="168" y="56" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="168" y="70" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+              <rect x="168" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="182" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="182" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="182" y="28" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="182" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="182" y="56" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="182" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="182" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="196" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="196" y="14" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="196" y="28" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="196" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="196" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="196" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="196" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="210" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="210" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="210" y="28" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="210" y="42" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="210" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="210" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="210" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="224" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="224" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="224" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="224" y="42" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="224" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="224" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="224" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="238" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="238" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="238" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="238" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="238" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="238" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="238" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="252" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="252" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="252" y="28" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="252" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="252" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="252" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="252" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="266" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="266" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="266" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="266" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="266" y="56" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="266" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="266" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="280" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="280" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="280" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="280" y="42" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="280" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="280" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="280" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="294" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="294" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="294" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="294" y="42" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="294" y="56" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="294" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="294" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="308" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="308" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="308" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="308" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="308" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="308" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="308" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="322" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="322" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="322" y="28" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="322" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="322" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="322" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="322" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="336" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="336" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="336" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="336" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="336" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="336" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="336" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="350" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="350" y="14" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="350" y="28" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="350" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="350" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="350" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="350" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="364" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="364" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="364" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="364" y="42" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="364" y="56" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="364" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+              <rect x="364" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="378" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="378" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="378" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="378" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="378" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="378" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="378" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="392" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="392" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="392" y="28" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="392" y="42" width="10" height="10" rx="2" fill="#39d353"><title>15 contributions</title></rect>
+              <rect x="392" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="392" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="392" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="406" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="406" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="406" y="28" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="406" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="406" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="406" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="406" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="420" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="420" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="420" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="420" y="42" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="420" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="420" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="420" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="434" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="434" y="14" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="434" y="28" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="434" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="434" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="434" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="434" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="448" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="448" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="448" y="28" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="448" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="448" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="448" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="448" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="462" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="462" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="462" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="462" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="462" y="56" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="462" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="462" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="476" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="476" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="476" y="28" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="476" y="42" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="476" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="476" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="476" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="490" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="490" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="490" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="490" y="42" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="490" y="56" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="490" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="490" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="504" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="504" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="504" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="504" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="504" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="504" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="504" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="518" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="518" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="518" y="28" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="518" y="42" width="10" height="10" rx="2" fill="#39d353"><title>15 contributions</title></rect>
+              <rect x="518" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="518" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="518" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="532" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="532" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="532" y="28" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="532" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="532" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="532" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="532" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="546" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="546" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="546" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="546" y="42" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="546" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="546" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="546" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="560" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="560" y="14" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="560" y="28" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="560" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="560" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="560" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="560" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="574" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="574" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="574" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="574" y="42" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="574" y="56" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="574" y="70" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+              <rect x="574" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="588" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="588" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="588" y="28" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="588" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="588" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="588" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="588" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="602" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="602" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="602" y="28" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="602" y="42" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="602" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="602" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="602" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+
+              <rect x="616" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="616" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="616" y="28" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="616" y="42" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="616" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="616" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="616" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="630" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="630" y="14" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="630" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="630" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="630" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="630" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="630" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="644" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="644" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="644" y="28" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="644" y="42" width="10" height="10" rx="2" fill="#39d353"><title>15 contributions</title></rect>
+              <rect x="644" y="56" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="644" y="70" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="644" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="658" y="0" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="658" y="14" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="658" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="658" y="42" width="10" height="10" rx="2" fill="#39d353"><title>10 contributions</title></rect>
+              <rect x="658" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="658" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="658" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="672" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="672" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="672" y="28" width="10" height="10" rx="2" fill="#26a641"><title>8 contributions</title></rect>
+              <rect x="672" y="42" width="10" height="10" rx="2" fill="#39d353"><title>12 contributions</title></rect>
+              <rect x="672" y="56" width="10" height="10" rx="2" fill="#39d353"><title>9 contributions</title></rect>
+              <rect x="672" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="672" y="84" width="10" height="10" rx="2" fill="#0e4429"><title>1 contribution</title></rect>
+
+              <rect x="686" y="0" width="10" height="10" rx="2" fill="#006d32"><title>4 contributions</title></rect>
+              <rect x="686" y="14" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="686" y="28" width="10" height="10" rx="2" fill="#39d353"><title>11 contributions</title></rect>
+              <rect x="686" y="42" width="10" height="10" rx="2" fill="#39d353"><title>14 contributions</title></rect>
+              <rect x="686" y="56" width="10" height="10" rx="2" fill="#26a641"><title>7 contributions</title></rect>
+              <rect x="686" y="70" width="10" height="10" rx="2" fill="#006d32"><title>3 contributions</title></rect>
+              <rect x="686" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+
+              <rect x="700" y="0" width="10" height="10" rx="2" fill="#0e4429"><title>2 contributions</title></rect>
+              <rect x="700" y="14" width="10" height="10" rx="2" fill="#006d32"><title>5 contributions</title></rect>
+              <rect x="700" y="28" width="10" height="10" rx="2" fill="#26a641"><title>9 contributions</title></rect>
+              <rect x="700" y="42" width="10" height="10" rx="2" fill="#39d353"><title>13 contributions</title></rect>
+              <rect x="700" y="56" width="10" height="10" rx="2" fill="#26a641"><title>6 contributions</title></rect>
+              <rect x="700" y="70" width="10" height="10" rx="2" fill="#006d32"><title>2 contributions</title></rect>
+              <rect x="700" y="84" width="10" height="10" rx="2" fill="#1b202e"><title>0 contributions</title></rect>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-space-xs pt-space-2xs text-code-xs font-code-xs text-outline">
+        <span class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Verified commits from production branches, core open-source repositories &amp; enterprise organizations.
+        </span>
+        <a class="text-tertiary hover:underline inline-flex items-center gap-1 transition-colors" href="https://github.com/your-username" rel="noopener noreferrer" target="_blank">
+          <span>Inspect full commit history</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section><section class="reveal-init w-full bg-surface-container-lowest/60 py-space-3xl reveal-visible" id="career-telemetry">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-2xl">
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Career Telemetry</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Enterprise Track Record</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[480px]">
+          From precision Automation &amp; Control Engineering (FEI) to high-throughput enterprise AI architecture and venture building.
+        </p>
+</div>
+<!-- Experience Stream -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<div class="lg:col-span-8 flex flex-col gap-space-lg"><!-- Role 1: YourClient -->
+<div class="interactive-card p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Engineering AI Specialist</h3>
+<span class="font-body-md text-body-md text-secondary font-medium">YourClient (YourClient | YourClient)</span>
+</div>
+<span class="font-code-xs text-code-xs text-tertiary bg-surface-container-high px-space-xs py-1 rounded border border-tertiary/20">2026 - Present · Your City</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+    Spearheading the architectural integration of AI-as-Infrastructure. Designing developer harnesses, automated Kanban triage workflows, and fine-tuned retrieval engines for sensitive enterprise compliance with deterministic validation gates.
+  </p>
+<div class="flex flex-wrap gap-space-2xs pt-space-xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangGraph</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Python</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">RAG Systems</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Enterprise LLM Governance</span>
+</div>
+</div>
+<!-- Role 2: YourCompany -->
+<div class="interactive-card p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Co-founder &amp; Lead Developer</h3>
+<span class="font-body-md text-body-md text-tertiary font-medium">YourCompany AI (EdTech SaaS)</span>
+</div>
+<span class="font-code-xs text-code-xs text-outline bg-surface-container-high px-space-xs py-1 rounded border border-outline-variant/30">2023 - 2026</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+    Bootstrapped and architected an end-to-end multi-language pedagogy engine. Developed multi-provider LLM pipelines (Groq, OpenAI, Claude) and customized vector indexing to transform unstructured pedagogical materials into CEFR-standardized curricula.
+  </p>
+<div class="flex flex-wrap gap-space-2xs pt-space-xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">FastAPI</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">LangChain</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Supabase</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">PostgreSQL</span>
+</div>
+</div>
+<!-- Role 3: YourCompany -->
+<div class="interactive-card p-space-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Senior Frontend Developer</h3>
+<span class="font-body-md text-body-md text-primary font-medium">YourCompany</span>
+</div>
+<span class="font-code-xs text-code-xs text-outline bg-surface-container-high px-space-xs py-1 rounded border border-outline-variant/30">2025 - 2026</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+    Engineered high-concurrency enterprise interfaces, real-time charting dashboards, and resilient client-side state architectures with strict performance and security compliance.
+  </p>
+<div class="flex flex-wrap gap-space-2xs pt-space-xs text-code-xs font-code-xs text-on-surface-variant">
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">React</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">TypeScript</span>
+<span class="chip-hover px-space-xs py-0.5 rounded bg-surface-container-high border border-outline-variant/30">Tailwind CSS</span>
+</div>
+</div></div>
+<!-- Pedigree Sidebar: The Educational Legacy & Degree -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Academic Baseline -->
+<div class="interactive-card p-space-lg rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Foundational Degree</span>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">B.S. Automation &amp; Control Engineering</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Centro Universitário FEI (Faculdade de Engenharia Industrial)
+            </p>
+<p class="font-body-sm text-body-sm text-outline mt-space-2xs leading-relaxed">
+              Classical feedback loops, PID controllers, state estimation, and mathematical optimization applied to modern autonomous software agents.
+            </p>
+</div>
+<!-- Decade of Leadership -->
+<div class="interactive-card p-space-lg rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs border border-outline-variant/30">
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">10-Year Leadership Pillar</span>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">Pedagogy &amp; Empathy Engine</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              YourCompany &amp; Better Call Your
+            </p>
+<p class="font-body-sm text-body-sm text-outline mt-space-2xs leading-relaxed">
+              A decade of classroom instruction translated directly into unmatched UX clarity, conversational AI prompting precision, and high-velocity developer mentorship.
+            </p>
+</div>
+<!-- Verification Badge with subtle animation -->
+<div class="p-space-md rounded-2xl bg-surface-container-high shadow-inner flex items-center gap-space-sm border border-outline-variant/30 hover:border-tertiary/40 transition-colors">
+<span class="material-symbols-outlined text-[32px] text-tertiary">verified</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">100% Verifiable Work</span>
+<span class="font-code-xs text-code-xs text-on-surface-variant">Available for Technical Audits</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: FINAL CALL TO ACTION & DIRECT CONTACT TERMINAL -->
+<section class="reveal-init w-full max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-3xl reveal-visible">
+<div class="interactive-card p-space-xl md:p-space-2xl rounded-3xl bg-surface-container-low border border-outline-variant/30 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xl">
+<!-- Glow element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none pulse-subtle"></div>
+<div class="flex flex-col gap-space-xs max-w-[620px] relative z-10">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Direct Engagements · Q2 / Q3 2026</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Ready to scale systems that combine deterministic precision with AI capability?
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Available for Staff / Lead Engineering, AI Architecture advisement, and production RAG/Agent infrastructure overhauls.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm relative z-10 shrink-0">
+<a class="group w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-primary-container text-on-primary-container font-title-md text-title-md hover:bg-inverse-primary transition-all duration-200 active:scale-95 shadow-[0_0_24px_rgba(37,99,235,0.4)] hover:shadow-[0_0_36px_rgba(37,99,235,0.7)] hover:-translate-y-0.5" href="mailto:you@example.com">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">send</span>
+<span>Initiate Technical Dialogue</span>
+</a>
+<a class="group w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-md py-space-md rounded-xl bg-surface-container-high text-on-surface font-title-md text-title-md hover:bg-surface-container-highest transition-all duration-200 active:scale-95 shadow-sm border border-outline-variant/30 hover:border-outline hover:-translate-y-0.5" href="https://linkedin.com/in/your-username" rel="noopener noreferrer" target="_blank">
+<span>LinkedIn</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5">arrow_outward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- MODAL / DRAWER: Interactive Architecture Specs Inspector -->
+<div aria-hidden="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="specs-modal">
+<div class="relative w-full max-w-3xl rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 flex flex-col max-h-[85vh]" id="specs-modal-dialog">
+<div class="flex items-center justify-between px-space-md py-space-sm border-b border-outline-variant/30 bg-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">terminal</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">Praxis System Contract · telemetry-spec.json</span>
+</div>
+<button class="p-1 rounded-lg hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-colors" id="close-specs-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-md overflow-y-auto font-code-xs text-code-xs text-on-surface-variant space-y-3 bg-surface-container-lowest/90">
+<div class="text-tertiary">// Deterministic Curriculum Graph Spec v2.4</div>
+<pre class="text-on-surface leading-relaxed overflow-x-auto p-space-sm rounded-lg bg-surface-container-high/40 border border-outline-variant/20"><code>{
+  "system": "Praxis-OS",
+  "verificationMode": "deterministic-DAG",
+  "pipeline": {
+    "stage_01": {
+      "name": "Topic Taxonomy Scaffolding",
+      "parser": "ast-prereq-traversal",
+      "cycleDetection": true,
+      "gate": "node --test graph.test.js"
+    },
+    "stage_02": {
+      "name": "Agent Harness &amp; Dev Bridge",
+      "transport": "Vite Middleware (/api/locale)",
+      "syncState": ".cursor/language.json",
+      "watchMode": "realtime-socket"
+    },
+    "stage_03": {
+      "name": "Dual AI Orchestration",
+      "agents": ["@teacher-socratic", "@review"],
+      "ruleEngine": "predict-first",
+      "passScoreThreshold": 80
+    },
+    "stage_04": {
+      "name": "Interactive React UI",
+      "stateManager": "Zustand Reactive Store",
+      "telemetry": "local-persist-buffer"
+    }
+  },
+  "invariants": {
+    "zeroLLMHallucinationInCurriculum": true,
+    "statePersistenceGuarantee": "100% deterministic"
+  }
+}</code></pre>
+<div class="flex items-center justify-between pt-space-xs text-outline">
+<span>Anchor: disk-based Markdown DAG parser</span>
+<span class="text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check</span> Validated Schema</span>
+</div>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container border-t border-outline-variant/30 flex justify-end gap-space-xs">
+<a class="px-space-sm py-1.5 rounded-lg bg-primary-container text-on-primary-container font-code-sm text-code-sm hover:bg-inverse-primary transition-colors inline-flex items-center gap-1" href="https://github.com/your-username/praxis" rel="noopener noreferrer" target="_blank">
+<span>View Source Repository</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script for Bento Role Filtering & Architecture Stage Filtering -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 0. Smooth Scroll Reveal (IntersectionObserver)
+      const reveals = document.querySelectorAll('.reveal-init');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.08,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+      } else {
+        // Fallback for browsers without IntersectionObserver
+        reveals.forEach(el => el.classList.add('reveal-visible'));
+      }
+
+      // 1. Bento Grid Role Filtering
+      const tabs = document.querySelectorAll('.role-tab');
+      const tiles = document.querySelectorAll('.bento-tile');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.getAttribute('data-filter');
+
+          // Update active button state
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+            t.classList.add('text-on-surface-variant');
+          });
+          tab.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+          tab.classList.remove('text-on-surface-variant');
+
+          // Highlight/Filter Bento Tiles
+          tiles.forEach(tile => {
+            const roles = tile.getAttribute('data-roles') || '';
+            if (filter === 'all' || roles.includes(filter)) {
+              tile.classList.remove('opacity-25', 'scale-[0.98]');
+              tile.classList.add('opacity-100', 'scale-100');
+            } else {
+              tile.classList.add('opacity-25', 'scale-[0.98]');
+              tile.classList.remove('opacity-100', 'scale-100');
+            }
+          });
+        });
+      });
+
+      // 2. Praxis Architecture Stage Filter & Deep-Dive Inspector
+      const stageButtons = document.querySelectorAll('.stage-toggle-btn');
+      const stageCards = document.querySelectorAll('.stage-card');
+      const activeStageIndicator = document.getElementById('active-stage-indicator');
+      const inspectorPanel = document.getElementById('stage-inspector-panel');
+      const inspectorIcon = document.getElementById('inspector-icon');
+      const inspectorBadge = document.getElementById('inspector-badge');
+      const inspectorTitle = document.getElementById('inspector-title');
+      const inspectorMeta = document.getElementById('inspector-meta');
+      const inspectorFiles = document.getElementById('inspector-files');
+      const inspectorGate = document.getElementById('inspector-gate');
+      const inspectorStatus = document.getElementById('inspector-status');
+      const inspectorBody = document.getElementById('inspector-body');
+
+      const stageMetadata = {
+        'all': {
+          indicator: 'End-to-End Pipeline Active (4/4 Stages)',
+          icon: 'timeline',
+          badge: 'Pipeline Inspector · Full Trace',
+          title: 'End-to-End Pipeline Active',
+          meta: 'Data Contract: Direct Disk Markdown → Vite API → Cursor Prompt Protocol',
+          files: 'graph/courses/*.graph.txt · .cursor/language.json · frontend/src',
+          gate: 'node --test (DAG) + Socratic Rubric (>80 threshold)',
+          status: '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span> 100% Deterministic Pacing Guarantee'
+        },
+        '01': {
+          indicator: 'Focused on Stage 01 · Topic Taxonomy & Scaffolding',
+          icon: 'account_tree',
+          badge: 'Taxonomy Engine · DAG Validation',
+          title: 'Stage 01: Strict Prerequisite Graph Contract',
+          meta: 'Protocol: Deterministic AST & Directed Acyclic Graph (DAG) Parser',
+          files: 'graph/courses/*.graph.txt · scripts/generate-catalog.js · tests/graph.test.js',
+          gate: 'node --test (DAG cycle check & schema verification)',
+          status: '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span> Zero-hallucination syllabus topology'
+        },
+        '02': {
+          indicator: 'Focused on Stage 02 · Agent Harness & Dev Bridge',
+          icon: 'sync_alt',
+          badge: 'Dev Runtime Bridge · Bidirectional Middleware',
+          title: 'Stage 02: Real-time Cursor Session Synchronization',
+          meta: 'Protocol: Dev-time Vite Plugin (/api/locale) & State File Injection',
+          files: '.cursor/language.json · vite.config.ts · scripts/get-user-language.js',
+          gate: 'Session config lock & dynamic JSON schema watcher',
+          status: '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span> Instant locale & cognitive state propagation'
+        },
+        '03': {
+          indicator: 'Focused on Stage 03 · Dual Cursor Agent Harness',
+          icon: 'psychology',
+          badge: 'Cognitive Engine · LLM Guardrails',
+          title: 'Stage 03: Dual AI Agents (@teacher-socratic & @review)',
+          meta: 'Protocol: Predict-First Socratic Rules & Weighted Rubric Contract',
+          files: '.cursor/rules/teacher-socratic.md · .cursor/rules/review.md · rubric.json',
+          gate: 'Grading Gate: Rubric score ≥ 80 to unlock succeeding DAG node',
+          status: '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span> Strict prompt guardrails preventing answer-leaks'
+        },
+        '04': {
+          indicator: 'Focused on Stage 04 · Interactive React Learning UI',
+          icon: 'laptop_chromebook',
+          badge: 'Presentation Cockpit · Client Telemetry',
+          title: 'Stage 04: Reactive Student Dashboard & Code Verification',
+          meta: 'Protocol: Zustand reactive store + LocalStorage persistence',
+          files: 'frontend/src/App.tsx · frontend/src/store/curriculumStore.ts · Tailwind CSS',
+          gate: 'Deterministic client-side quiz eval & exercise starter hydration',
+          status: '<span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-surface opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-on-surface"></span></span> 60fps responsive curriculum rendering'
+        }
+      };
+
+      stageButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selected = btn.getAttribute('data-stage');
+
+          // 1. Update button states with spring physics
+          stageButtons.forEach(b => {
+            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+            b.classList.add('text-on-surface-variant');
+          });
+          btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+          btn.classList.remove('text-on-surface-variant');
+
+          // 2. Update Stage Cards visual focus with staggered fade & lift
+          stageCards.forEach((card, idx) => {
+            const cardStage = card.getAttribute('data-stage');
+            // Remove previous active highlights
+            card.classList.remove(
+              'border-tertiary', 'shadow-[0_0_28px_rgba(78,222,163,0.35)]',
+              'border-secondary', 'shadow-[0_0_28px_rgba(76,215,246,0.35)]',
+              'border-primary', 'shadow-[0_0_28px_rgba(180,197,255,0.4)]',
+              'border-outline', 'shadow-[0_0_28px_rgba(223,226,239,0.25)]',
+              'bg-surface-container', 'opacity-30', 'scale-[0.98]'
+            );
+
+            if (selected === 'all') {
+              card.classList.remove('opacity-30', 'scale-[0.98]');
+              card.classList.add('opacity-100', 'scale-100');
+            } else if (cardStage === selected) {
+              card.classList.remove('opacity-30');
+              card.classList.add('scale-[1.03]', 'z-20', 'bg-surface-container');
+
+              // Color specific glow border
+              if (selected === '01') {
+                card.classList.add('border-tertiary', 'shadow-[0_0_28px_rgba(78,222,163,0.35)]');
+              } else if (selected === '02') {
+                card.classList.add('border-secondary', 'shadow-[0_0_28px_rgba(76,215,246,0.35)]');
+              } else if (selected === '03') {
+                card.classList.add('border-primary', 'shadow-[0_0_28px_rgba(180,197,255,0.4)]');
+              } else if (selected === '04') {
+                card.classList.add('border-outline', 'shadow-[0_0_28px_rgba(223,226,239,0.25)]');
+              }
+            } else {
+              card.classList.add('opacity-30', 'scale-[0.98]');
+              card.classList.remove('scale-[1.03]', 'z-20');
+            }
+          });
+
+          // 3. Smooth Crossfade in Inspector Panel
+          if (inspectorTitle && inspectorBody) {
+            inspectorTitle.style.opacity = '0';
+            inspectorBody.style.opacity = '0';
+          }
+
+          setTimeout(() => {
+            const data = stageMetadata[selected];
+            if (data) {
+              if (activeStageIndicator) activeStageIndicator.textContent = data.indicator;
+              if (inspectorIcon) inspectorIcon.textContent = data.icon;
+              if (inspectorBadge) inspectorBadge.textContent = data.badge;
+              if (inspectorTitle) inspectorTitle.textContent = data.title;
+              if (inspectorMeta) inspectorMeta.textContent = data.meta;
+              if (inspectorFiles) inspectorFiles.textContent = data.files;
+              if (inspectorGate) inspectorGate.textContent = data.gate;
+              if (inspectorStatus) inspectorStatus.innerHTML = data.status;
+
+              if (inspectorTitle && inspectorBody) {
+                inspectorTitle.style.opacity = '1';
+                inspectorBody.style.opacity = '1';
+              }
+
+              // Pulse inspector border
+              inspectorPanel.classList.add('border-secondary/60', 'bg-surface-container-high/60');
+              setTimeout(() => {
+                inspectorPanel.classList.remove('border-secondary/60', 'bg-surface-container-high/60');
+              }, 300);
+            }
+          }, 150);
+        });
+      });
+
+      // 3. Architecture Specs Interactive Modal / Telemetry Viewer
+      const openSpecsBtn = document.getElementById('open-specs-btn');
+      const specsModal = document.getElementById('specs-modal');
+      const specsDialog = document.getElementById('specs-modal-dialog');
+      const closeSpecsBtn = document.getElementById('close-specs-btn');
+
+      function openModal() {
+        if (!specsModal) return;
+        specsModal.classList.remove('opacity-0', 'pointer-events-none');
+        specsModal.classList.add('opacity-100', 'pointer-events-auto');
+        specsDialog.classList.remove('scale-95');
+        specsDialog.classList.add('scale-100');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        if (!specsModal) return;
+        specsModal.classList.remove('opacity-100', 'pointer-events-auto');
+        specsModal.classList.add('opacity-0', 'pointer-events-none');
+        specsDialog.classList.remove('scale-100');
+        specsDialog.classList.add('scale-95');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      if (openSpecsBtn) openSpecsBtn.addEventListener('click', openModal);
+      if (closeSpecsBtn) closeSpecsBtn.addEventListener('click', closeModal);
+      if (specsModal) {
+        specsModal.addEventListener('click', (e) => {
+          if (e.target === specsModal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && specsModal && !specsModal.classList.contains('pointer-events-none')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-2xl mt-space-3xl border-t border-outline-variant/20"><div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-code-xs text-code-xs text-on-surface-variant uppercase tracking-wider">Operational &amp; Ready for Engagements</span></div><div class="font-title-md text-title-md text-on-surface font-semibold">Your Name</div><p class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-space-2xs"><span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span><span>Your City, Brazil · UTC-3</span></p></div><div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md md:gap-space-xl"><a class="group flex items-center gap-space-xs text-on-surface-variant hover:text-primary transition-colors" href="mailto:you@example.com"><span class="material-symbols-outlined text-[18px] text-secondary transition-transform group-hover:scale-110">mail</span><span class="font-code-sm text-code-sm">you@example.com</span></a><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-on-surface transition-colors font-body-sm text-body-sm hover:-translate-y-0.5" href="https://github.com/your-username" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">terminal</span><span>GitHub</span></a><a class="flex items-center gap-space-2xs text-on-surface-variant hover:text-on-surface transition-colors font-body-sm text-body-sm hover:-translate-y-0.5" href="https://linkedin.com/in/your-username" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">link</span><span>LinkedIn</span></a></div></div></div><div class="max-w-[1280px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop mt-space-xl pt-space-md border-t border-outline-variant/10 flex flex-col sm:flex-row items-center justify-between gap-space-xs"><p class="font-code-xs text-code-xs text-outline">© 2025 Your Name. Built with precision dark telemetry specs.</p><p class="font-code-xs text-code-xs text-outline">Crafted with deterministic precision &amp; dark aesthetics</p></div></footer>
+
+
+<script>
+  (function() {
+    const cadenceTabs = document.querySelectorAll('.cadence-tab-btn');
+    const streamBadge = document.getElementById('stream-telemetry-badge');
+    const streamNote = document.getElementById('stream-breakdown-note');
+    const heatmapTotal = document.getElementById('heatmap-total-count');
+    
+    // Metric Elements
+    const statValThroughput = document.getElementById('stat-value-throughput');
+    const statUnitThroughput = document.getElementById('stat-unit-throughput');
+    const statDescThroughput = document.getElementById('stat-desc-throughput');
+    const statValRigor = document.getElementById('stat-value-rigor');
+    const statDescRigor = document.getElementById('stat-desc-rigor');
+    const statValEcosystem = document.getElementById('stat-value-ecosystem');
+    const statDescEcosystem = document.getElementById('stat-desc-ecosystem');
+    
+    const streamData = {
+      combined: {
+        badge: 'Combined Cadence · Public & Enterprise Contribution Stream',
+        note: 'Live Stream: All Public & Private Enterprise Repos',
+        total: '1,324 Contributions in the last year',
+        throughputVal: '1,324',
+        throughputUnit: 'contributions',
+        throughputDesc: 'Annual Verified Commits, PRs & Code Reviews (Nov 2025 - Nov 2026)',
+        rigorVal: '100% On-Time',
+        rigorDesc: 'Core Banking & EdTech Enterprise Repositories',
+        ecosystemVal: 'TypeScript · Python · C++',
+        ecosystemDesc: 'Polyglot Systems: Agents, Compilers & Reactive Frontends'
+      },
+      oss: {
+        badge: 'Open-Source Stream · Public GitHub Repos & Agent Tooling',
+        note: 'Public repos: Praxis, Ed-Tech MCP, Pixelanea Pro — 487 commits',
+        total: '487 Public Commits across 6 Repositories',
+        throughputVal: '487',
+        throughputUnit: 'public commits',
+        throughputDesc: 'Praxis OS, MCP Server & Pixelanea Pro (4.2 commits/week avg)',
+        rigorVal: '100% Zero-Defect',
+        rigorDesc: 'Strict AST-Prerequisite & Socratic Rubric Gates',
+        ecosystemVal: 'LangGraph · React · C++17',
+        ecosystemDesc: 'Open-Source Educational Harnesses, WASM & Prompt Engines'
+      },
+      enterprise: {
+        badge: 'Enterprise & Banking · YourClient (YourClient/YourClient) & YourCompany',
+        note: 'Enterprise squads: Core Banking Migration, HR ERP, YourClient AI — 837 commits',
+        total: '837 Enterprise Contributions across 8 Squad Repos',
+        throughputVal: '837',
+        throughputUnit: 'enterprise PRs/commits',
+        throughputDesc: 'YourClient AI Infrastructure, YourClient Banking, YourCompany Dashboards',
+        rigorVal: '99.98% SLA',
+        rigorDesc: 'Mission-Critical Financial Data & SOC2 Compliance',
+        ecosystemVal: 'Python · FastAPI · PostgreSQL',
+        ecosystemDesc: 'Secure Enterprise LLM Governance, RAG & High-Concurrency APIs'
+      }
+    };
+
+    // Tag heatmap rect cells with classes to support stream filtering visualization
+    const heatmapSvg = document.querySelector('#github-activity svg');
+    if (heatmapSvg) {
+      const rects = heatmapSvg.querySelectorAll('g[transform] rect');
+      rects.forEach((rect, idx) => {
+        // Odd/Even distribution: indices mod 3 === 0 OSS, rest Enterprise
+        if (idx % 3 === 0) {
+          rect.setAttribute('data-stream-type', 'oss');
+        } else {
+          rect.setAttribute('data-stream-type', 'enterprise');
+        }
+      });
+    }
+
+    cadenceTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-stream') || 'combined';
+
+        // Update tab styles
+        cadenceTabs.forEach(b => {
+          b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+          b.classList.add('text-on-surface-variant');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-[0_0_12px_rgba(37,99,235,0.35)]');
+        btn.classList.remove('text-on-surface-variant');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Update Telemetry & Text with quick transition
+        const d = streamData[mode];
+        if (d) {
+          if (streamBadge) streamBadge.textContent = d.badge;
+          if (streamNote) streamNote.textContent = d.note;
+          if (heatmapTotal) heatmapTotal.textContent = d.total;
+
+          if (statValThroughput) {
+            statValThroughput.style.opacity = '0';
+            setTimeout(() => {
+              statValThroughput.textContent = d.throughputVal;
+              if (statUnitThroughput) statUnitThroughput.textContent = d.throughputUnit;
+              if (statDescThroughput) statDescThroughput.textContent = d.throughputDesc;
+              if (statValRigor) statValRigor.textContent = d.rigorVal;
+              if (statDescRigor) statDescRigor.textContent = d.rigorDesc;
+              if (statValEcosystem) statValEcosystem.textContent = d.ecosystemVal;
+              if (statDescEcosystem) statDescEcosystem.textContent = d.ecosystemDesc;
+              statValThroughput.style.opacity = '1';
+            }, 120);
+          }
+        }
+
+        // Modulate heatmap rects based on stream
+        if (heatmapSvg) {
+          const rects = heatmapSvg.querySelectorAll('g[transform] rect');
+          rects.forEach(rect => {
+            const streamType = rect.getAttribute('data-stream-type');
+            const originalFill = rect.getAttribute('data-orig-fill') || rect.getAttribute('fill');
+            if (!rect.hasAttribute('data-orig-fill')) {
+              rect.setAttribute('data-orig-fill', originalFill);
+            }
+
+            if (mode === 'combined') {
+              rect.style.opacity = '1';
+              rect.style.transition = 'opacity 0.25s ease';
+            } else if (mode === 'oss') {
+              if (streamType === 'oss') {
+                rect.style.opacity = '1';
+              } else {
+                rect.style.opacity = originalFill === '#1b202e' ? '0.3' : '0.15';
+              }
+              rect.style.transition = 'opacity 0.25s ease';
+            } else if (mode === 'enterprise') {
+              if (streamType === 'enterprise') {
+                rect.style.opacity = '1';
+              } else {
+                rect.style.opacity = originalFill === '#1b202e' ? '0.3' : '0.15';
+              }
+              rect.style.transition = 'opacity 0.25s ease';
+            }
+          });
+        }
+      });
+    });
+  })();
+</script></body></html>
