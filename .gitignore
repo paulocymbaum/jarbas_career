@@ -44,8 +44,5 @@ static-html/
 # taste-skill gate state (design-taste-frontend audit runs)
 .taste-skill/
 
-# Local agent config (Cline/Claude session settings + personal skills)
-.claude/
-
 # Design handoff artifacts (extracted locally from stitch)
 stitch_portfolio_hero_section_revamp.zip
