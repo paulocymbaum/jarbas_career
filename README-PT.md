@@ -3,6 +3,20 @@
 **Seu Nome — AI Engineer & Full-Stack Developer**, em uma página estática rápida: sua história,
 sua prova, seu pitch — feita para **recrutadores** e **clientes que te contratam**.
 
+## O que é este produto?
+
+É um **portfólio + site freelance** pessoal para um **AI Engineer / Full-Stack Developer** que
+quer uma página estática, rápida, que guarde sua história profissional, sua prova e seu pitch.
+
+- **Para quem:** o dono (AI Engineer / Full-Stack Developer) que quer que recrutadores e clientes
+  leiam uma história consistente em um só lugar.
+- **Para que faz:** conta a história profissional, lista experiências / skills / projetos,
+  prova o trabalho (heatmap GitHub, showcases de projetos, serviços freelance) e faz o pitch.
+- **Como funciona:** SQLite (fonte da verdade) → conteúdo tipado → site estático (Vite) → HTML
+  renderizado e deployado na Vercel.
+
+O design é orientado a conteúdo: quem for o dono preenche a história; o sistema renderiza.
+
 Duas portas para a mesma casa:
 
 | Porta | Caminho | Para quem |

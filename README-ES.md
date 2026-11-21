@@ -3,7 +3,21 @@
 **Tu Nombre — AI Engineer & Full-Stack Developer**, en una página estática rápida: tu historia,
 tu prueba, tu pitch — hecha para **reclutadores** y **clientes que te contratam**.
 
-Dos puertas a la misma casa:
+## De qué trata este producto?
+
+Es un **portafolio + sitio freelance** para un **AI Engineer / Full-Stack Developer** que quiere
+una página estática, rápida, que guarde tu historia profesional, tu prueba y tu pitch.
+
+- **Para quién:** el dueño (AI Engineer / Full-Stack Developer) que quiere que reclutadores y
+  clientes lean una historia consistente en un solo lugar.
+- **Para qué:** cuenta la historia profesional, lista experiencias / skills / proyectos,
+  prueba el trabajo (heatmap de GitHub, showcases de proyectos, servicios freelance) y hace el pitch.
+- **Cómo funciona:** SQLite (fuente de verdad) → contenido tipado → sitio estático (Vite) → HTML
+  renderizado y deployado en Vercel.
+
+Está orientado a contenido: quien sea el dueño completa la historia; el sistema la renderiza.
+
+## Dos puertas a la misma casa:
 
 | Puerta | Ruta | Para quién |
 |---|---|---|
