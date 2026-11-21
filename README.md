@@ -3,6 +3,21 @@
 **Your Name — AI Engineer & Full-Stack Developer** in one fast, static page: your story,
 your proof, your pitch — built for both **recruiters** and **clients hiring you**.
 
+## What is this product?
+
+It is a **personal portfolio + freelance website** for an AI engineer / full-stack developer
+who wants one fast, static page to hold their professional story, proof, and pitch.
+
+- **Who it's for:** the owner (AI engineer / full-stack developer) who wants recruiters and
+  clients to read one consistent story instead of hunting through scattered documents.
+- **What it does:** tells the professional story, lists experience / skills / projects,
+  proves work (GitHub heatmap, project showcases, freelance services), and pitches freelance
+  engagement.
+- **How it works:** SQLite (source of truth) → typed content → static site (Vite) → prerendered
+  HTML deployed to Vercel.
+
+It is deliberately content-driven: the owner fills the professional story; the system renders it.
+
 Two doors into the same house:
 
 | Door | Path | Who it's for |
