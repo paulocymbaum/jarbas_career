@@ -6,6 +6,12 @@ description: >-
   .env file; plus set up the GitHub account for this project if it does not exist yet
   (create the account and authenticate on the agentic IDE). Use before the first Vercel
   deploy, when deploy env vars are missing, or when the user asks to ship to production.
+hooks:
+  Stop:
+    - hooks:
+        - type: command
+          command: 'bash "$CLAUDE_PROJECT_DIR/scripts/harness/hooks/deploy-env-check.sh"'
+          timeout: 30
 ---
 
 # Deploy setup
