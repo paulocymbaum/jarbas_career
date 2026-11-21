@@ -24,6 +24,10 @@ deployed, step by step, with each step gated and handoff written to markdown.
 - Deploy pipeline: `.github/workflows/deploy.yml` (push to `main` / daily cron / manual
   dispatch → build → deploy to Vercel).
 - One-time setup: `VERCEL.md`; env template: `.env.example`.
+- Build gate: the pipeline runs `npm run build`, which runs `build:content` → `build:resumes`
+  → `tsc -b` → `vite build` → `prerender`. **Content is required** (`site_profile` + CV
+  profiles); run `npm run db:reset` → fill `db/seed.sql` (or follow the interview skill's
+  content plan) → `npm run build:content` → `npm run build` before deploying.
 
 ## Steps
 
@@ -60,7 +64,9 @@ deployed, step by step, with each step gated and handoff written to markdown.
 **Prompt to present:**
 
 > Verify deployment readiness: `npx vercel link`, env vars in `.env`, and secrets pushed
-> (`npm run gh:secrets`).
+> (`npm run gh:secrets`). Also verify the production build passes (`npm run build`) — it
+> requires content (site_profile + CV profiles), so run `npm run db:reset` → fill
+> `db/seed.sql` → `npm run build:content` → `npm run build` before deploying.
 
 **Handoff:** `docs/deploy-setup/step-03-deploy-ready.md`
 
