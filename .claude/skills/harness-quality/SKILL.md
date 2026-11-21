@@ -7,6 +7,17 @@ description: >-
   or harden a skill, rule or hook; before creating a new agent component; after writing
   or editing one; or when agent behavior looks under-triggered, over-triggered,
   inconsistent, bloated or context-starved.
+hooks:
+  Stop:
+    - hooks:
+        - type: command
+          command: 'bash "$CLAUDE_PROJECT_DIR/scripts/harness/hooks/stop-gate-check.sh"'
+          timeout: 30
+  PostToolUse:
+    - hooks:
+        - type: command
+          command: 'bash "$CLAUDE_PROJECT_DIR/scripts/harness/hooks/post-tool-check.sh"'
+          timeout: 30
 ---
 
 # Harness quality
