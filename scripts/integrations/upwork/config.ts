@@ -24,13 +24,13 @@ const upworkConfigSchema = z.object({
   oauthTokenUrl: z.string().url().default("https://www.upwork.com/api/v3/oauth2/token"),
   authListenPort: z.coerce.number().int().positive().default(8788),
   stateDir: z.string().default("data/upwork"),
-  syncExperience: boolFromEnv.default("true"),
-  syncProjects: boolFromEnv.default("true"),
+  syncExperience: boolFromEnv.default(true),
+  syncProjects: boolFromEnv.default(true),
   defaultCity: z.string().default("Your City"),
   defaultCountry: z.string().default("Brazil"),
   projectSubjectPrefix: z.string().default("Portfolio project"),
-  includePrivateRepos: boolFromEnv.default("false"),
-  featuredProjectsOnly: boolFromEnv.default("false"),
+  includePrivateRepos: boolFromEnv.default(false),
+  featuredProjectsOnly: boolFromEnv.default(false),
 });
 
 export type UpworkConfig = z.infer<typeof upworkConfigSchema>;
