@@ -143,3 +143,38 @@ static-html/            ephemeral local static mirror (gitignored)
 - **Deploy** — `.github/workflows/deploy.yml`: push to `main` / daily cron `0 7 * * *` UTC (04:00 Your City) / manual → sync GitHub activity → build PDFs → build site → prerender → `vercel deploy --prebuilt --prod`.
 - **Agent harnesses / skills** — `.claude/skills/job-application`, `.cursor/skills/{design-taste-frontend,linkedin-refresh,no-ai-slop}`, `.agents/skills/{design-taste-frontend,no-ai-slop}`, `.cursor/rules/seo.mdc`, design gate in `.taste-skill/`.
 - **RTK** — token-optimized CLI proxy (`rtk …`) wraps bash commands; see `/home/your-user/.claude/RTK.md`.
+- **Agent skill prompts** — canonical prompts to invoke the agentic skills of this system:
+
+  - **Harness quality audit**: "Audit the quality of this system's harness components (skills, rules and hooks) using prompt engineering, harness engineering and context engineering best practices."
+  - **Interview / storytelling**: "Run the structured professional-story interview with me, one step at a time, waiting for each step's input before moving to the next."
+  - **Deploy setup**: "Guide me through Vercel account/project creation, generate the Vercel variables for the deploy pipeline, add them to the .env file, and set up GitHub auth for this project if missing."
+
+## Agentic skills — induction & onboarding
+
+How to use the agentic skills of this system and what they do.
+
+### `harness-quality` — harness component auditor
+
+**What it does:** audits the quality of this system's harness components (skills, rules, hooks) through the combined lenses of prompt engineering, harness engineering, and context engineering; scores each audit dimension, emits findings and recommendations, and defines evals.
+
+**How to use:** invoke with the canonical prompt ("Audit the quality of this system's harness components…"). Run it before creating a new agent component, after writing/editing one, or when behavior looks under-triggered, over-triggered, inconsistent, bloated or context-starved.
+
+**Induction:** structural drift nudges are enforced by hooks (`scripts/harness/hooks/stop-gate-check.sh`, `post-tool-check.sh`, `deploy-env-check.sh`).
+
+### `interview` — professional-story interviewer
+
+**What it does:** runs a structured professional-story interview, one step at a time, always waiting for the user's input before moving to the next step; ends by producing the complete plan to customize the page from the user's professional information.
+
+**How to use:** invoke with the canonical prompt; answer Step 1 (LinkedIn URL + LinkedIn PDF), then Step 2 (professional profile + latest CVs), Step 3 (personal story per experience → `STORYTELLING.md`), Step 4 (plan: data to include / what to change in pages), and receive the final complete plan.
+
+### `deploy-setup` — deployment setup guide
+
+**What it does:** walks the user through Vercel account/project creation, generation of the Vercel variables the deploy pipeline needs, adding them to the `.env` file, and the GitHub account setup step (create account + authenticate on the agentic IDE if missing).
+
+**How to use:** invoke with the canonical prompt; run before the first Vercel deploy, when deploy env vars are missing, or when the user asks to ship to production.
+
+### Suggested onboarding flow
+
+1. Start with `harness-quality` to audit the current harness state.
+2. Run `interview` to collect the professional story before filling page content.
+3. Run `deploy-setup` before deploying (env vars, GitHub auth).
