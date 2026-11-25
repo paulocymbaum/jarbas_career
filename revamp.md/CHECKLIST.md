@@ -15,7 +15,7 @@ Map from [DESIGN.md](./DESIGN.md) and [SPACING.md](./SPACING.md) into `src/`.
 - [x] Header, sections, footer: same gutter
 - [x] Every public section: `py-16 lg:py-24`
 - [x] Nav inline from `lg`
-- [x] Hero: name, Full-stack · AI · Product, pitch, city, two CTAs
+- [x] Hero: name, Full-stack · Software · Product, pitch, city, two CTAs
 - [x] No serif display face on headings
 
 ## UX (already in place, do not regress)

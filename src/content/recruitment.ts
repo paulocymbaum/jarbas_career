@@ -8,8 +8,8 @@ export const recruitmentContent: RecruitmentContent = {
     packs: [
       {
         slug: "ai-engineer",
-        title: "AI Engineer & Full-Stack Developer",
-        targetRole: "AI Engineer & Full-Stack Developer",
+        title: "Senior Software Engineer",
+        targetRole: "Senior Software Engineer",
         resumeUrl: "/resumes/ai-engineer.pdf",
         upwork: [
           {
@@ -19,7 +19,7 @@ export const recruitmentContent: RecruitmentContent = {
               {
                 id: "title",
                 label: "Professional title",
-                value: "AI Engineer & Full-Stack Developer",
+                value: "Senior Software Engineer",
                 hint: "Upwork profile title / specialized profile headline.",
               },
               {
@@ -157,19 +157,19 @@ export const recruitmentContent: RecruitmentContent = {
               {
                 id: "headline",
                 label: "Headline",
-                value: "AI Engineer & Full-Stack Developer",
+                value: "Senior Software Engineer",
                 hint: "LinkedIn limit: 220 characters.",
               },
               {
                 id: "open-to-work",
                 label: "Open to work — job titles",
-                value: "AI Engineer & Full-Stack Developer",
+                value: "Senior Software Engineer",
                 hint: "Add target titles in LinkedIn Open to Work preferences.",
               },
               {
                 id: "featured-headline",
                 label: "Featured section title",
-                value: "Resume — AI Engineer & Full-Stack Developer",
+                value: "Resume — Senior Software Engineer",
                 hint: "Use for featured resume PDF or portfolio link.",
               },
             ],
@@ -281,14 +281,14 @@ export const recruitmentContent: RecruitmentContent = {
               {
                 id: "cover-letter",
                 label: "Cover letter template",
-                value: "Dear Hiring Manager,\n\nI am writing to express my strong interest in the AI Engineer & Full-Stack Developer opportunity at [Company Name]. Your story will appear here.\n\nIn my recent work at , I have delivered measurable impact across engineering, product, and AI initiatives — including built ai-driven products that reduced production time from hours to seconds while improving reliability and user engagement. I am confident my background aligns with the technical and collaborative demands of this role.\n\nI am based in City, Country (UTC−3) and am comfortable working remotely with distributed teams. I would welcome the chance to discuss how my experience with  can support your goals.\n\nThank you for your time and consideration.\n\nBest regards,\nYour Name\nyou@example.com\n",
+                value: "Dear Hiring Manager,\n\nI am writing to express my strong interest in the Senior Software Engineer opportunity at [Company Name]. Your story will appear here.\n\nIn my recent work at , I have delivered measurable impact across engineering, product, and AI initiatives — including built ai-driven products that reduced production time from hours to seconds while improving reliability and user engagement. I am confident my background aligns with the technical and collaborative demands of this role.\n\nI am based in City, Country (UTC−3) and am comfortable working remotely with distributed teams. I would welcome the chance to discuss how my experience with  can support your goals.\n\nThank you for your time and consideration.\n\nBest regards,\nYour Name\nyou@example.com\n",
                 hint: "Replace [Company Name] and tailor the middle paragraph per application.",
                 multiline: true,
               },
               {
                 id: "elevator-pitch",
                 label: "Elevator pitch (30 seconds)",
-                value: "I'm Your Name, a AI Engineer & Full-Stack Developer based in City, Country. Your story will appear here. Recent highlights include work at .",
+                value: "I'm Your Name, a Senior Software Engineer based in City, Country. Your story will appear here. Recent highlights include work at .",
                 multiline: true,
               },
               {
@@ -382,7 +382,7 @@ export const recruitmentContent: RecruitmentContent = {
               {
                 id: "why-leaving",
                 label: "Why are you looking for a new role?",
-                value: "I am seeking a AI Engineer & Full-Stack Developer role where I can focus on [growth area — e.g. production LLM systems, scale, impact] and contribute to a team building [type of product].",
+                value: "I am seeking a Senior Software Engineer role where I can focus on [growth area — e.g. production LLM systems, scale, impact] and contribute to a team building [type of product].",
                 multiline: true,
               },
               {

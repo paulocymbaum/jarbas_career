@@ -19,7 +19,7 @@ Root `DESIGN.md` remains the product/IA document. Visual tokens now live here.
 
 Your Name is a **full-stack, AI, and product engineer**. The site should look like a senior engineer’s working notes: precise, quiet, easy to scan. It should not look like a SaaS marketing page, an AI-generated portfolio, or a magazine.
 
-First impression in five seconds: name, **Full-stack · AI · Product**, one sentence of proof, city, two actions (projects, resume). Three resume cards let a hiring manager pick the PDF that matches the role.
+First impression in five seconds: name, **Full-stack · Software · Product**, one sentence of proof, city, two actions (projects, resume). Three resume cards let a hiring manager pick the PDF that matches the role.
 
 ---
 

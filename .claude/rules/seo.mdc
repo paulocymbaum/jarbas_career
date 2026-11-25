@@ -83,8 +83,8 @@ Use real profile URLs from `siteContent`; omit fields you cannot verify.
 
 ```html
 <!-- index.html -->
-<title>Your Name — AI Engineer · Full-Stack · LLMOps</title>
-<meta name="description" content="AI Engineer building scalable EdTech products with LLMs, RAG, and AI-augmented engineering." />
+<title>Your Name — Senior Software Engineer</title>
+<meta name="description" content="Senior Software Engineer building scalable products with LLMs, RAG, and AI-augmented engineering." />
 <meta property="og:image" content="https://example.com/og-card.png" />
 <link rel="canonical" href="https://example.com/" />
 ```

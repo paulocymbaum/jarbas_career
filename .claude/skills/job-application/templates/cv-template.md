@@ -1,6 +1,6 @@
 # {Full Name}
 
-{Tailored headline — must echo the JD role title terms from gate.json, e.g. "AI Engineer | RAG Pipelines, AI Agents & LLMOps"}
+{Tailored headline — must echo the JD role title terms from gate.json, e.g. "Senior Software Engineer | RAG Pipelines, AI Agents & LLMOps"}
 {City, Country} · {email} · {linkedin-url} · {github-url} · {portfolio-url}
 
 ## Summary

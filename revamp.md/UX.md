@@ -6,14 +6,14 @@ When I open this URL with 30–90 seconds, I want to know this person can ship a
 
 ## Persona
 
-Primary: hiring manager / recruiter screening for **full-stack**, **AI engineer**, or **product engineer**.  
+Primary: hiring manager / recruiter screening for **full-stack developer**, **software engineer**, or **product engineer**.  
 Secondary: engineering manager who will open GitHub and a README.
 
 Do not design the first screen for other engineers’ entertainment (3D scenes, marquees, polar charts).
 
 ## Golden path
 
-1. Read name + **Full-stack · AI · Product** + one-line pitch + city.
+1. Read name + **Full-stack · Software · Product** + one-line pitch + city.
 2. Open a resume that matches the role, or scroll experience for current company and bullets.
 3. Skim two projects if still unsure.
 4. Email or LinkedIn.
@@ -51,7 +51,7 @@ Nav stays at five links. Writing, education, certifications, and GitHub are reac
 
 | Place | Line |
 |-------|------|
-| Title under name | Full-stack · AI · Product |
+| Title under name | Full-stack · Software · Product |
 | Pitch | Concrete: client, API/data, AI only when the product needs it |
 | Resumes | Three versions of the same career. Download the one that matches the role. |
 | Contact | Email, LinkedIn, or GitHub. I usually reply within a day. |

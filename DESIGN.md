@@ -98,7 +98,7 @@ Single-page layout with anchor navigation. All primary content lives on one scro
 
 #### Professional Profiles (subsection)
 
-Cards directly below the bio that show **how you position yourself** across roles (e.g. Fullstack Developer, AI Engineer, Product Engineer).
+Cards directly below the bio that show **how you position yourself** across roles (e.g. Senior Software Engineer, Fullstack Developer, Product Engineer).
 
 Each **profile card** contains:
 

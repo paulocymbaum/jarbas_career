@@ -1,7 +1,7 @@
 # AGENT-SEO — Strategy: agents & robots finding `/freelance`
 
 **Question this answers:** when a human asks an AI agent (ChatGPT, Claude, Perplexity, Gemini,
-MCP tooling) *"find me a freelance AI / full-stack professional"*, or a crawler robot indexes the
+MCP tooling) *"find me a freelance developer for modern web & AI products"*, or a crawler robot indexes the
 web — how does `/freelance` get found, understood, extracted and recommended?
 
 **Date:** 2026-11-15 · **Page:** `/freelance` (+ parity items on `/`)
@@ -62,7 +62,7 @@ served by the same file for JS-capable agents because we only strip the module s
    (explicit indexing statement agents parse from head).
 3. **`FAQPage` JSON-LD** on `freelance.html` — the 4 client questions + answers as structured
    `Question/AcceptedAnswer` entities. This is prime agent-extraction material: "how much does a
-   freelance AI engineer cost / how does handoff work" map directly to these answers.
+   freelance developer cost / how does handoff work" map directly to these answers.
 
 ---
 
@@ -93,9 +93,9 @@ time (single source of truth, zero drift):
 **Spec — `scripts/generate-agent-files.ts`** (runs after `build:content`):
 - `public/llms.txt`:
   ```
-  # Your Name — Freelance AI Engineer & Full-Stack Developer
+  # Your Name — Freelance Developer
 
-  > Freelance AI engineer and full-stack developer (Your City, UTC−3, remote worldwide).
+  > Freelance developer and consultant (Your City, UTC−3, remote worldwide).
   > RAG pipelines, AI agents, React/TypeScript apps, FastAPI APIs, automation. Fixed-scope,
   > weekly demos, full handoff. Contact: you@example.com
 
@@ -123,7 +123,7 @@ actions, in order:
 1. **GitHub profile README** (`your-username/your-username`): link `/freelance` with the same
    positioning line + availability. GitHub raw content is heavily RAG'd.
 2. **LinkedIn**: add the production URL as the profile "Website"; keep headline aligned with the
-   H1 claim (freelance AI + full-stack, fixed scope).
+   H1 claim (freelance developer + AI, fixed scope).
 3. **Upwork profile** (already curated in the recruitment pack): mirror the services one-liners.
 4. **Directories/communities** where clients ask for professionals: Concierge-style AI dev
    directories, Brazilian freelance registries, local tech directories (Your City).
@@ -142,10 +142,10 @@ actions, in order:
   referrers `chat.openai.com | perplexity.ai | claude.ai | copilot.microsoft.com | gemini.google.com`
   to measure AI-referred sessions (Umami reports referrers natively).
 - **Prompt tracking (manual, monthly):** run a fixed prompt battery across ChatGPT/Perplexity/
-  Claude — *"freelance AI engineer Your City"*, *"hire freelance RAG developer"*, *"full-stack
+  Claude — *"freelance developer Your City"*, *"hire freelance developer"*, *"full-stack
   freelancer AI integrations remote LATAM"* — and log whether `/freelance` is cited. This is the
   GEO KPI.
-- **GSC**: after domain + sitemap land, watch queries containing "freelance", "AI engineer",
+- **GSC**: after domain + sitemap land, watch queries containing "freelance", "developer",
   "RAG developer" for `/freelance` impressions.
 
 ---

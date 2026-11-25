@@ -20,9 +20,9 @@ const profile = `INSERT INTO site_profile (
 ) VALUES (
   1,
   'Your Name',
-  'AI Engineer · Full-Stack · LLMOps',
-  'AI Engineer building scalable EdTech products with LLMs, RAG, and AI-augmented engineering.',
-  '["I am an AI Engineer with over a decade of experience shipping applied AI products. My work revolves around optimizing large language models (LLMs), developing Retrieval-Augmented Generation (RAG) architectures, and integrating AI-driven automation into scalable applications for education. I am passionate about leveraging AI to solve real-world problems, with a particular focus on emerging markets, AI agents, and intelligent automation.","I specialize in Python, TypeScript, JavaScript, Dart, and Flutter, with extensive experience in LangChain, Langflow, CrewAI, and AI agents. As Founder & Lead Developer at YourCompany, I built AI-driven lesson creation pipelines that cut production time from hours to seconds. At YourCompany and YourClient, I lead AI-augmented frontend engineering with React, Flutter, and Cursor.","Beyond development, I have a strong background in business strategy, AI-driven market research, and customer engagement. At my private training business, I implemented data-driven engagement strategies that reduced user churn by 50%. I hold a degree in Automation and Control Engineering and diplomas in Business, Management, and Project Management.","Open to AI Engineering opportunities where I can contribute to cutting-edge projects in LLMs, NLP, RAG architectures, and AI automation. Based in Your City, Brazil (UTC−3)."]',
+  'Senior Software Engineer',
+  'Senior Software Engineer building scalable products with LLMs, RAG, and AI-augmented engineering.',
+  '["I am a Senior Software Engineer with over a decade of experience shipping applied AI products. My work revolves around optimizing large language models (LLMs), developing Retrieval-Augmented Generation (RAG) architectures, and integrating AI-driven automation into scalable applications for education. I am passionate about leveraging AI to solve real-world problems, with a particular focus on emerging markets, AI agents, and intelligent automation.","I specialize in Python, TypeScript, JavaScript, Dart, and Flutter, with extensive experience in LangChain, Langflow, CrewAI, and AI agents. As Founder & Lead Developer at YourCompany, I built AI-driven lesson creation pipelines that cut production time from hours to seconds. At YourCompany and YourClient, I lead AI-augmented frontend engineering with React, Flutter, and Cursor.","Beyond development, I have a strong background in business strategy, AI-driven market research, and customer engagement. At my private training business, I implemented data-driven engagement strategies that reduced user churn by 50%. I hold a degree in Automation and Control Engineering and diplomas in Business, Management, and Project Management.","Open to Senior Software Engineer opportunities where I can contribute to cutting-edge projects in LLMs, NLP, RAG architectures, and AI automation. Based in Your City, Brazil (UTC−3)."]',
   '/images/your-slug.webp',
   'you@example.com',
   'Your City',
@@ -35,7 +35,7 @@ const profile = `INSERT INTO site_profile (
 const professionalProfiles = [
   {
     id: 1,
-    title: "AI Engineer",
+    title: "Senior Software Engineer",
     slug: "ai-engineer",
     summary: "LLM integrations, RAG, agentic AI, and production-ready AI workflows.",
     description:
@@ -169,7 +169,7 @@ const experiences = [
     end: null,
     loc: "Your City, SP",
     summary:
-      "DevOps, AI engineering, data engineering, full-stack development, and product engineering on a geolocated social platform: C#/.NET backend, React frontend, Flutter apps, and Python AI services (LangChain, Vertex AI) on GCP, behind Terraform infrastructure, load-balanced async workflows, and GitHub Actions CI/CD.",
+      "DevOps, software engineering, data engineering, full-stack development, and product engineering on a geolocated social platform: C#/.NET backend, React frontend, Flutter apps, and Python AI services (LangChain, Vertex AI) on GCP, behind Terraform infrastructure, load-balanced async workflows, and GitHub Actions CI/CD.",
     highlights: [
       "Built an agent-and-RAG creator platform on LangGraph and Qdrant",
       "Ran geolocated 2026 election data pipelines as ETL on Docker and Kubernetes",

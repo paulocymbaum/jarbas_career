@@ -6,14 +6,14 @@ import type { SiteContent } from "./types";
 
 export const siteContent: SiteContent = {
     name: "Your Name",
-    title: "AI Engineer & Full-Stack Developer",
+    title: "Senior Software Engineer",
     pitch: "Your story will appear here.",
     aboutParagraphs: [
       "Your story will appear here.",
     ],
     professionalProfiles: [
       {
-        title: "AI Engineer & Full-Stack Developer",
+        title: "Senior Software Engineer",
         slug: "ai-engineer",
         summary: "Your story will appear here.",
         description: "Your story will appear here.",

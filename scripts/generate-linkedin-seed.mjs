@@ -13,9 +13,9 @@ const profile = `INSERT INTO site_profile (
 ) VALUES (
   1,
   'Your Name',
-  'AI Engineer · Full-Stack · LLMOps & RAG Architect',
+  'Senior Software Engineer',
   'I craft AI-powered products that turn complex ideas into scalable, user-friendly experiences.',
-  '["I am an AI Engineer with over a decade of experience shipping applied AI products. My work revolves around optimizing large language models (LLMs), developing Retrieval-Augmented Generation (RAG) architectures, and integrating AI-driven automation into scalable applications for education.","Specialist in Python, TypeScript, JavaScript, Dart, and Flutter, with extensive experience in LangChain, Langflow, CrewAI, and AI agents. Built AI-driven lesson creation pipelines that cut production time from hours to seconds at YourCompany. Leads AI-augmented frontend engineering with React and Cursor at YourCompany.","Beyond development, offers business strategy, AI-driven market research, and customer engagement experience — including reducing churn by 50% at a private training business. Based in Your City, UTC−3. Open to AI Engineering roles in LLMs, NLP, RAG, and automation."]',
+  '["I am a Senior Software Engineer with over a decade of experience shipping applied AI products. My work revolves around optimizing large language models (LLMs), developing Retrieval-Augmented Generation (RAG) architectures, and integrating AI-driven automation into scalable applications for education.","Specialist in Python, TypeScript, JavaScript, Dart, and Flutter, with extensive experience in LangChain, Langflow, CrewAI, and AI agents. Built AI-driven lesson creation pipelines that cut production time from hours to seconds at YourCompany. Leads AI-augmented frontend engineering with React and Cursor at YourCompany.","Beyond development, offers business strategy, AI-driven market research, and customer engagement experience — including reducing churn by 50% at a private training business. Based in Your City, UTC−3. Open to Senior Software Engineer opportunities in LLMs, NLP, RAG, and AI automation."]',
   'you@example.com',
   'Your City',
   'Brazil',
@@ -25,7 +25,7 @@ const profile = `INSERT INTO site_profile (
 );`;
 
 const profProfiles = `INSERT INTO professional_profile (id, title, slug, summary, accent, resume_url, sort_order) VALUES
-  (1, 'AI Engineer', 'ai-engineer', 'LLM integrations, RAG pipelines, AI agents, and production-ready AI workflows.', 'from-violet-700 via-purple-500 to-fuchsia-400', '/resumes/ai-engineer.pdf', 0),
+  (1, 'Senior Software Engineer', 'ai-engineer', 'LLM integrations, RAG pipelines, AI agents, and production-ready AI workflows.', 'from-violet-700 via-purple-500 to-fuchsia-400', '/resumes/ai-engineer.pdf', 0),
   (2, 'Senior Frontend Engineer', 'senior-frontend-engineer', 'Scalable React/TypeScript frontends with AI-augmented engineering practices.', 'from-blue-600 via-blue-500 to-cyan-400', '/resumes/senior-frontend-engineer.pdf', 1),
   (3, 'Product Engineer', 'product-engineer', 'EdTech founder mindset — ship fast, measure impact, and align product with business outcomes.', 'from-emerald-700 via-teal-500 to-lime-400', '/resumes/product-engineer.pdf', 2);
 

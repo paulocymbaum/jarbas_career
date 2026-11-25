@@ -577,7 +577,7 @@ function FreelanceHero({ briefMailto }: { briefMailto: string }) {
               className="relative aspect-square w-full rounded-[2rem] border border-border/60 object-cover shadow-[0_24px_80px_-24px] shadow-primary/40"
             />
             <p className="absolute -left-4 top-8 rounded-xl border border-border/60 bg-card/90 px-3 py-2 font-mono text-[11px] font-semibold text-foreground shadow-lg backdrop-blur sm:-left-8">
-              AI Engineer · Full-Stack Dev
+              Senior Software Engineer · Freelance Dev
             </p>
             <p className="absolute -bottom-4 right-2 rounded-xl border border-border/60 bg-card/90 px-3 py-2 font-mono text-[11px] font-semibold text-foreground shadow-lg backdrop-blur sm:-right-4">
               {freelanceContent.proofPoints[3]?.value} · Your City
