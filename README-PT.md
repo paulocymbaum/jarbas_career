@@ -1,14 +1,13 @@
 # Portfólio / CV
 
-**Seu Nome — AI Engineer & Full-Stack Developer**, em uma página estática rápida: sua história,
+**Seu Nome — Portfólio & Site Freelance**, em uma página estática rápida: sua história,
 sua prova, seu pitch — feita para **recrutadores** e **clientes que te contratam**.
 
 ## O que é este produto?
 
-É um **portfólio + site freelance** pessoal para um **AI Engineer / Full-Stack Developer** que
-quer uma página estática, rápida, que guarde sua história profissional, sua prova e seu pitch.
+É um **portfólio + site freelance** pessoal para **qualquer profissional** que quer uma página estática, rápida, que guarde sua história profissional, sua prova e seu pitch.
 
-- **Para quem:** o dono (AI Engineer / Full-Stack Developer) que quer que recrutadores e clientes
+- **Para quem:** o dono (qualquer profissional) que quer que recrutadores e clientes
   leiam uma história consistente em um só lugar.
 - **Para que faz:** conta a história profissional, lista experiências / skills / projetos,
   prova o trabalho (heatmap GitHub, showcases de projetos, serviços freelance) e faz o pitch.
@@ -22,7 +21,7 @@ Duas portas para a mesma casa:
 | Porta | Caminho | Para quem |
 |---|---|---|
 | O CV | `/` | Recrutadores — hero, experiências, skills, projetos, escrita, certificações, educação, heatmap do GitHub, contato |
-| A página freelance | `/freelance` | Clientes que te contratam para AI / full-stack — headline com ganância, serviços, objeções, trabalhos, processo, FAQ, provas, CTAs |
+| A página freelance | `/freelance` | Clientes que te contratam para qualquer profissional — headline com ganância, serviços, objeções, trabalhos, processo, FAQ, provas, CTAs |
 
 Ambas são alimentadas por uma única fonte de verdade (SQLite) e renderizadas em uma site estático
 no build.
@@ -40,7 +39,7 @@ npm run dev           # servidor local
 
 ## O que tem aqui
 
-- **CV (`/`)** — hero, perfis profissionais (Fullstack · AI · Product) com downloads por perfil, experiências, skills, escrita, certificações, educação, projetos, heatmap GitHub, contato.
+- **CV (`/`)** — hero, perfis profissionais (Fullstack · Software · Product) com downloads por perfil, experiências, skills, escrita, certificações, educação, projetos, heatmap GitHub, contato.
 - **Página freelance (`/freelance`)** — headline com ganância, serviços, objeções, trabalhos, processo, FAQ, provas, CTAs.
 
 ## Onde seu conteúdo mora
@@ -64,6 +63,7 @@ Edite o seed → reset → rebuild. Não edite arquivos gerados.
 - **`interview`** — entrevista estruturada de história profissional → plano completo de customização.
 - **`deploy-setup`** — setup de Vercel / GitHub / env.
 - **`job-application`** — vagas → CV + carta adaptados com ATS.
+- **`faq`** — responde perguntas de configuração e funcionalidade do produto a partir dos docs do próprio repositório.
 
 Fluxo sugerido: `harness-quality` → `interview` → `deploy-setup`.
 

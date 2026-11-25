@@ -2,6 +2,10 @@
 
 The portfolio deploys to **Vercel** via GitHub Actions. The site is built in CI (SQLite → content → PDFs → Vite) and the `dist/` folder is uploaded to Vercel.
 
+> After deploying, see [DATA-EXTRACTION.md](./DATA-EXTRACTION.md) for how the deployed
+> artifact (prerendered DOM, JSON-LD, `llms.txt`) is consumed by crawlers, AI agents and
+> Umami analytics — and why keeping them in sync with the SQLite source of truth matters.
+
 ---
 
 ## 1. One-time setup

@@ -1,14 +1,14 @@
 # Portfolio / CV
 
-**Your Name — AI Engineer & Full-Stack Developer** in one fast, static page: your story,
+**Your Name — Personal Portfolio & Freelance Developer** in one fast, static page: your story,
 your proof, your pitch — built for both **recruiters** and **clients hiring you**.
 
 ## What is this product?
 
-It is a **personal portfolio + freelance website** for an AI engineer / full-stack developer
+It is a **personal portfolio + freelance website** for any professional who needs an online presence
 who wants one fast, static page to hold their professional story, proof, and pitch.
 
-- **Who it's for:** the owner (AI engineer / full-stack developer) who wants recruiters and
+- **Who it's for:** the owner (any professional) who wants recruiters and
   clients to read one consistent story instead of hunting through scattered documents.
 - **What it does:** tells the professional story, lists experience / skills / projects,
   proves work (GitHub heatmap, project showcases, freelance services), and pitches freelance
@@ -23,7 +23,7 @@ Two doors into the same house:
 | Door | Path | Who it's for |
 |---|---|---|
 | The CV | `/` | Recruiters — hero, experience, skills, projects, writing, certifications, education, GitHub heatmap, contact |
-| The Freelance page | `/freelance` | Clients hiring AI / full-stack work — gain-framed headline, services, objections, work, process, FAQ, proof, CTAs |
+| The Freelance page | `/freelance` | Clients hiring work — gain-framed headline, services, objections, work, process, FAQ, proof, CTAs |
 
 Both doors are fed from a single source of truth (SQLite) and baked into a static site at
 build time.
@@ -43,7 +43,7 @@ npm run dev           # local dev server
 
 ## What's inside
 
-- **Main CV (`/`)** — hero, professional profiles (Fullstack · AI · Product) with per-profile
+- **Main CV (`/`)** — hero, professional profiles (Fullstack · Software · Product) with per-profile
   resume downloads, experience, skills, writing, education, certifications, projects, GitHub
   contribution heatmap, contact + footer.
 - **Freelance page (`/freelance`)** — gain-framed hero, services, objection block, work,
@@ -70,6 +70,7 @@ Edit the seed → reset → rebuild. Generated files are not hand-edited.
 - **`interview`** — structured professional-story interview → complete page customization plan.
 - **`deploy-setup`** — Vercel / GitHub / env setup for deployment.
 - **`job-application`** — job posting → ATS-gated tailored CV + cover letter.
+- **`faq`** — answers configuration & functionality questions from the repo's own docs.
 
 Suggested flow: `harness-quality` → `interview` → `deploy-setup`.
 
@@ -87,6 +88,7 @@ Suggested flow: `harness-quality` → `interview` → `deploy-setup`.
 - [VERCEL.md](./VERCEL.md) — Vercel deploy + GitHub secrets
 - [EXTERNAL.md](./EXTERNAL.md) — LinkedIn / Upwork integrations
 - [AGENT-SEO.md](./AGENT-SEO.md) — AI-agent / crawler SEO strategy for `/freelance`
+- [DATA-EXTRACTION.md](./DATA-EXTRACTION.md) — how deploy (Vercel) + structured data + Umami analytics make the site machine-readable for agents
 
 ## Project structure
 
@@ -120,5 +122,6 @@ static-html/            ephemeral local static mirror (gitignored)
 - `interview` — professional-story interview → complete page plan.
 - `deploy-setup` — deployment setup.
 - `job-application` — JD → ATS-gated tailoring.
+- `faq` — configuration & functionality Q&A from repo docs.
 
 Suggested flow: `harness-quality` → `interview` → `deploy-setup`.
