@@ -6,7 +6,8 @@ Gemini, MCP tooling) and analytics all consume the same deployed artifact. This
 doc explains that structure, why it exists, and where each piece is operated.
 
 **Companion docs:** deploy → [VERCEL.md](./VERCEL.md) · agent-visibility strategy
-→ [AGENT-SEO.md](./AGENT-SEO.md) · event/analytics parity review →
+→ [AGENT-SEO.md](./AGENT-SEO.md) · analytics deep-dive (event taxonomy, dashboard
+recipes) → [ANALYTICS.md](./ANALYTICS.md) · event/analytics parity review →
 [docs/analytics-umami-review.md](./docs/analytics-umami-review.md).
 
 ---

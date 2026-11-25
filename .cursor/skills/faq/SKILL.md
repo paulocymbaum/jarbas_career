@@ -44,7 +44,7 @@ source of truth, and cite where each answer came from.
 | GitHub contribution heatmap | `GITHUB.md`, `scripts/sync-github-activity.mjs` |
 | LinkedIn / Upwork integrations | `EXTERNAL.md`, `scripts/integrations/` |
 | AI-agent / crawler SEO strategy | `AGENT-SEO.md`, `.cursor/rules/seo.mdc` |
-| Agent data-extraction structure & analytics | `DATA-EXTRACTION.md` (deploy: `VERCEL.md`; events: `docs/analytics-umami-review.md`) |
+| Agent data-extraction structure & analytics | `DATA-EXTRACTION.md` + `ANALYTICS.md` (deploy: `VERCEL.md`; events: `docs/analytics-umami-review.md`) |
 | Scoring: ATS / SEO audits, thresholds | `scripts/lib/scoring/`, `npm run audit:content`, `scripts/tests/content-thresholds.test.ts` |
 | Job-application tailoring (jd CLI) | the `job-application` skill, `scripts/jd/` |
 | Skills & harness (hooks, rules, parity) | `.claude/skills/`, `.agents/skills/`, `.cursor/skills/`, `.claude/settings.json`, `scripts/harness/hooks/` |

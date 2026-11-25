@@ -73,7 +73,7 @@ Fluxo sugerido: `harness-quality` → `interview` → `deploy-setup`.
 
 ## Docs
 
-- [DESIGN.md](./DESIGN.md), [ARCHITECTURE.md](./ARCHITECTURE.md), [BACKEND.md](./BACKEND.md), [GITHUB.md](./GITHUB.md), [VERCEL.md](./VERCEL.md), [EXTERNAL.md](./EXTERNAL.md), [AGENT-SEO.md](./AGENT-SEO.md).
+- [DESIGN.md](./DESIGN.md), [ARCHITECTURE.md](./ARCHITECTURE.md), [BACKEND.md](./BACKEND.md), [GITHUB.md](./GITHUB.md), [VERCEL.md](./VERCEL.md), [EXTERNAL.md](./EXTERNAL.md), [AGENT-SEO.md](./AGENT-SEO.md), [ANALYTICS.md](./ANALYTICS.md) (rastreamento de eventos dos visitantes com Umami), [DATA-EXTRACTION.md](./DATA-EXTRACTION.md) (como agentes de IA extraem dados da página).
 
 ## Estrutura do projeto
 

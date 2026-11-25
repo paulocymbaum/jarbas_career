@@ -88,6 +88,7 @@ Suggested flow: `harness-quality` → `interview` → `deploy-setup`.
 - [VERCEL.md](./VERCEL.md) — Vercel deploy + GitHub secrets
 - [EXTERNAL.md](./EXTERNAL.md) — LinkedIn / Upwork integrations
 - [AGENT-SEO.md](./AGENT-SEO.md) — AI-agent / crawler SEO strategy for `/freelance`
+- [ANALYTICS.md](./ANALYTICS.md) — Umami visitor-event tracking: wiring, event taxonomy, dashboard recipes
 - [DATA-EXTRACTION.md](./DATA-EXTRACTION.md) — how deploy (Vercel) + structured data + Umami analytics make the site machine-readable for agents
 
 ## Project structure
