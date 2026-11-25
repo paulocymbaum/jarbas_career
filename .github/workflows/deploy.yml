@@ -108,3 +108,5 @@ jobs:
           url=$(vercel deploy --prebuilt --prod --yes --token="$VERCEL_TOKEN")
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to $url"
+
+# NOTE: this file must be touched/pushed at least once so GitHub registers the workflow.
