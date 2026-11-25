@@ -80,6 +80,7 @@ manual prompt battery that complements it is specified in [AGENT-SEO.md](./AGENT
 | Task | Doc |
 |---|---|
 | Deploy / redeploy, env vars, GitHub secrets | [VERCEL.md](./VERCEL.md) + `deploy-setup` skill |
+| First-time Umami account/website + `.env` tracking credentials | `deploy-setup` skill, Step 3 (Umami analytics) |
 | Change what agents extract (positioning, entities, llms.txt) | [AGENT-SEO.md](./AGENT-SEO.md) + content in `db/seed.sql` |
 | Verify the analytics contract after copy/CTA changes | [docs/analytics-umami-review.md](./docs/analytics-umami-review.md) |
 | Inspect what a no-JS reader sees | `npm run build` → open `dist/index.html` / `dist/freelance.html` |
