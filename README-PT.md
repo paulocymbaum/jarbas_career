@@ -3,6 +3,55 @@
 **Seu Nome — Portfólio & Site Freelance**, em uma página estática rápida: sua história,
 sua prova, seu pitch — feita para **recrutadores** e **clientes que te contratam**.
 
+## 🤖 Prompt para o seu agente de IA (comece aqui)
+
+Copie o prompt abaixo e cole no seu agente de código (Claude Code, Cursor, Copilot, …)
+com este projeto aberto na sua IDE:
+
+```text
+Você é um agente de engenharia de software sênior trabalhando dentro deste repositório do GitHub:
+https://github.com/paulocymbaum/jarbas_career
+
+Este projeto é um
+portfólio pessoal + site freelance: uma página estática rápida com duas portas — o CV em `/` (para
+recrutadores) e a página freelance em `/freelance` (para clientes). Stack: SQLite (fonte da verdade) →
+conteúdo tipado → site estático (Vite) → HTML prerenderizado deployado na Vercel.
+
+Sua missão: me ajudar a transformar este template no MEU portfólio pessoal.
+
+Regras invioláveis:
+1. O banco é a única fonte da verdade. Nunca edite à mão os arquivos gerados
+   (src/content/site.ts, recruitment.ts, github-activity.ts, project-readmes.ts).
+   Edite o db/seed.sql e depois rode `npm run db:reset` e `npm run build:content`.
+2. Leia DESIGN.md, ARCHITECTURE.md e BACKEND.md antes de mudar qualquer coisa.
+3. Faça o onboarding pelas agentic skills deste projeto, nesta ordem: primeiro `harness-quality`
+   (audita o próprio harness: skills, rules e hooks), depois `interview` (entrevista estruturada
+   de história profissional → plano completo de customização das páginas), depois `deploy-setup`
+   (setup de Vercel / GitHub / env). Depois: `job-application`, `faq`, `design-taste-frontend`.
+4. Hooks de drift rodam automaticamente — não os contorne; se um falhar, corrija o problema de
+   origem. Agent hooks registrados no `.claude/settings.json` (scripts em
+   `scripts/harness/hooks/`): `post-tool-check.sh` no PostToolUse, `stop-gate-check.sh` e
+   `deploy-env-check.sh` no Stop. Git hooks `pre-commit` e `pre-push` são instalados pelo
+   `npm run prepare` → `scripts/install-git-hooks.mjs`.
+5. Valide toda mudança com `npm run audit:content` e `npm run build` antes de terminar.
+6. Respeite os design gates (DESIGN.md, skill `design-taste-frontend`) e as regras de SEO/ATS
+   (AGENT-SEO.md, `.claude/rules/seo.mdc`).
+
+Comece me perguntando qual etapa eu quero, ou rode `harness-quality` e depois a skill
+`interview` se estivermos começando do zero.
+```
+
+## 📦 Coloque o projeto na sua IDE — fork ou download
+
+Escolha uma opção:
+
+| Opção | Como | Melhor para |
+|---|---|---|
+| **🍴 Fork** | [Fork no GitHub](https://github.com/paulocymbaum/jarbas_career/fork) e depois `git clone https://github.com/SEU-USUARIO/jarbas_career.git` | Manter o seu próprio histórico no GitHub |
+| **⬇️ Download** | [Baixar o ZIP pelo GitHub](https://github.com/paulocymbaum/jarbas_career/archive/refs/heads/main.zip) ou [abrir direto no VS Code](https://vscode.dev/redirect?url=https%3A%2F%2Fgithub.com%2Fpaulocymbaum%2Fjarbas_career) e abrir a pasta na sua IDE | Começo rápido, sem fork |
+
+Em qualquer caso, o próximo passo é `npm install` → veja [Comece aqui](#comece-aqui).
+
 ## O que é este produto?
 
 É um **portfólio + site freelance** pessoal para **qualquer profissional** que quer uma página estática, rápida, que guarde sua história profissional, sua prova e seu pitch.
